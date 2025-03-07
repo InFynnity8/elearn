@@ -1,6 +1,6 @@
 {
     "appId": "com.InFynnity.app",
-    "productName": "eLearn",
+    "productName": "eClassroom",
     "icon" : "./golden.png",
     "files": [
         "dist-electron", "dist-react"

@@ -15,6 +15,24 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "../components/ui/sidebar"
+import { NavUser } from '../components/nav-user'
+
+import {
+  formatDate,
+} from "date-fns";
+
+const Month = formatDate(Date(), "MMMM");
+const Day = formatDate(Date(), "do");
+const time =  new Date()
+const year = time.getFullYear();
+const fulldate = Day + " "  + Month + ", "  + year.toString() 
+const data = {
+  user: {
+    name: "Hello, Marvin",
+    email: fulldate,
+    avatar: "/avatars/shadcn.jpg",
+  }, 
+};
 
 function App() {
   const location = useLocation()
@@ -23,16 +41,17 @@ function App() {
     <> 
     <SidebarProvider>
       <SidebarLeft />
-      <SidebarInset className='bg-accent'>
-        <header className="sticky top-0 flex h-16 shrink-0 items-center gap-2 bg-background">
-          <div className="flex flex-1 items-center gap-2 px-3">
+      <SidebarInset className='bg-accent w-full'>
+        <header className="sticky top-0 flex h-16 shrink-0 items-center gap-2 bg-background z-50">
+          <div className="flex flex-1 items-center gap-2 px-3 justify-between">
             <SidebarTrigger />
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbPage className="line-clamp-1 capitalize">
-                    {location.pathname.replace("/", "")}
+                    {/* {location.pathname.replace("/", "")} */}
+                     <NavUser user={data.user} />
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
@@ -43,7 +62,7 @@ function App() {
         <Outlet />
         </div>
       </SidebarInset>
-      <SidebarRight />
+      {/* <SidebarRight /> */}
     </SidebarProvider>
     </>
   )

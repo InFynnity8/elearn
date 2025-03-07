@@ -15,14 +15,24 @@ import {
   SidebarRail,
   SidebarSeparator,
 } from "./ui/sidebar";
+import {
+  formatDate,
+} from "date-fns";
 
+const Month = formatDate(Date(), "MMMM");
+const Day = formatDate(Date(), "do");
+const dateTime = formatDate(Date(), "PPPppp")
+const Time = formatDate(Date(), "p")
+const time =  new Date()
+const year = time.getFullYear();
+const fulldate = Day + " "  + Month + ", "  + year.toString() + " " + Time
 // This is sample data.
 const data = {
   user: {
-    name: "mavin",
-    email: "marvin@gmail.com",
+    name: "Good Morning Marvin",
+    email: fulldate,
     avatar: "/avatars/shadcn.jpg",
-  },
+  }, 
 };
 
 export function SidebarRight({

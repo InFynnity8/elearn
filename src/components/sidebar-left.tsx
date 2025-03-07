@@ -4,12 +4,10 @@ import * as React from "react"
 import {
   BrainCircuit,
   GraduationCap ,
-  Calendar,
+  BrainCog,
   BookText,
   Home,
   NotebookPen,
-  MessageCircleQuestion,
-  Search,
   Settings2,
   LogOut,
 } from "lucide-react"
@@ -38,8 +36,8 @@ const data = {
       icon: GraduationCap ,
     },
     {
-      title: "Homework",
-      url: "/homework",
+      title: "TextBooks",
+      url: "/TextBooks",
       icon: BookText,
     },
     {
@@ -51,18 +49,13 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Timetable", 
-      url: "/timetable",
-      icon: Calendar,
-    },
-    {
       title: "Settings",
       url: "/settings",
       icon: Settings2,
     },
     {
       title: "Logout",
-      url: "/login",
+      url: "/signup",
       icon: LogOut,
     },
   ],
@@ -74,9 +67,9 @@ export function SidebarLeft({
   return (
     <Sidebar className="border-r-0" {...props}>
       <SidebarHeader>
-        <div className="w-full flex items-center justify-center mb-6 mt-2 pointer-events-none">
-          <BrainCircuit className="size-8 text-blue-400" />
-          <p className="text-2xl font-bold text-blue-400">eLearn</p>
+        <div className="w-full flex items-center justify-center mb-6 mt-2 pointer-events-none pr-4">
+          <BrainCog className="size-8 text-blue-400" />
+          <p className="text-2xl font-bold text-blue-400">eClassroom</p>
         </div>
         <NavMain items={data.navMain} />
       </SidebarHeader>
