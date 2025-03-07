@@ -1,0 +1,18 @@
+{
+    "appId": "com.InFynnity.app",
+    "productName": "eLearn",
+    "icon" : "./golden.png",
+    "files": [
+        "dist-electron", "dist-react"
+    ],
+    "win": {
+        "target": [ "portable","msi"]
+    },
+    "mac": {
+        "target": "dmg"
+    },
+    "linux": {
+        "target": "AppImage",
+        "category":"Utility"
+    }
+}
