@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
-import { Card } from "src/components/ui/card";
-import { BellRing, EllipsisVertical } from "lucide-react";
+import { Card, CardDescription, CardFooter, CardHeader } from "../../components/ui/card";
+import { BellRing, EllipsisVertical, Heart } from "lucide-react";
 
 const Dashboard = () => {
   return (
@@ -79,7 +79,40 @@ const Dashboard = () => {
 
       {/* Recently watched */}
       <div className="py-4">
-        <h1 className="font-medium">Continue Watching</h1>
+        <h1 className="font-medium py-4">Continue Watching</h1>
+        {/* courses */}
+        <div className="flex items-center justify-between gap-4">
+          <Card className="h-[300px] p-2 flex-1">
+            <CardHeader className="p-0">
+              <div className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"/>
+            </CardHeader>
+            <CardDescription className="p-0 m-0">
+              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">BIOLOGY</p>
+              <p className="text-muted-foreground font-medium text-[14px]">Introduction to Human Anatomy and Physiology</p>
+            </CardDescription>
+            <CardFooter className="m-0 p-0 flex justify-end"> <Heart className="cursor-pointer text-blue-400"/></CardFooter>
+          </Card>
+          <Card className="h-[300px] p-2 flex-1">
+            <CardHeader className="p-0">
+              <div className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"/>
+            </CardHeader>
+            <CardDescription className="p-0 m-0">
+              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">PHYSICS</p>
+              <p className="text-muted-foreground font-medium text-[14px]">Atomic physics | The dual nature of electron</p>
+            </CardDescription>
+            <CardFooter className="m-0 p-0 flex justify-end"> <Heart className="cursor-pointer text-blue-400"/></CardFooter>
+          </Card>
+          <Card className="h-[300px] p-2 flex-1">
+            <CardHeader className="p-0">
+              <div className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"/>
+            </CardHeader>
+            <CardDescription className="p-0 m-0">
+              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">CHEMISTRY</p>
+              <p className="text-muted-foreground font-medium text-[14px]">State of matter | Chemical Kinetics and the kinetic theory of Gases</p>
+            </CardDescription>
+            <CardFooter className="m-0 p-0 flex justify-end"> <Heart className="cursor-pointer text-blue-400"/></CardFooter>
+          </Card>
+        </div>
       </div>
     </div>
   );
