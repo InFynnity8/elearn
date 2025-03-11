@@ -1,35 +1,34 @@
 import { IoIosClose } from "react-icons/io";
-import React from "react";
+import React, { useEffect } from "react";
 import { MdOutlineLiveTv } from "react-icons/md";
 import { Input } from "../../components/ui/input";
 import { Textarea } from "../../components/ui/textarea";
+import NoteEditor from "../../components/note-editor"
+import VideoPlayer from "../../components/video-clip";
+
 
 const Lessons = () => {
+
+useEffect(() => {
+  console.log()
+}, [])
   return (
-    <div className="-m-4 flex h-[110%] ">
-      <div className="w-[700px]">
+    <div className="flex h-full">
+      <div className="flex-5">
         {/* player */}
         <div className="">
-          <iframe
-            width="700"
-            height="400"
-            src="https://www.youtube.com/embed/uBGl2BujkPQ?si=Slrq_Vx5tpq3RqQI"
-            title="YouTube video player"
-            framedorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+          <VideoPlayer />
         </div>
         {/* notes */}
-        <div className=" w-[700px]">
-          <h1 className="font-bold my-2 w-[700px] flex text-center pl-5">Take Notes here</h1>
-          <Textarea className="bg-background w-[670px] p-5 h-[240px]" placeholder="Type here ..."/>
+        <div className=" w-full p-2">
+          <h1 className="font-bold my-2 w-[700px] flex text-center">Take Notes here</h1>
+          <Textarea className="bg-background w-full p-5 h-[240px]" placeholder="Type here ..."/>
+          <NoteEditor/>
         </div>
       </div>
 
       {/* Table of contents */}
-      <div className="bg-background right-0 overflow-scroll fixed h-full">
+      <div className="flex-2 bg-background overflow-scroll  right-0 h-full">
         <div className=" flex items-center justify-between font-bold text-[17px] w-full px-5 py-2 border-b-[1px] border-t-[1px]">
           <h1>Course content</h1>
           <IoIosClose size={20} className="hover:cursor-pointer" />
@@ -182,4 +181,4 @@ const Lessons = () => {
   );
 };
 
-export default Lessons;
+export default Lessons; 

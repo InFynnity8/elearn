@@ -41,7 +41,7 @@ function App() {
     <> 
     <SidebarProvider>
       <SidebarLeft />
-      <SidebarInset className='bg-accent w-full'>
+      <SidebarInset className='bg-accent w-2'>
         <header className="sticky top-0 flex h-16 shrink-0 items-center gap-2 bg-background z-50">
           <div className="flex flex-1 items-center gap-2 px-3 justify-between">
             <SidebarTrigger />
@@ -58,7 +58,7 @@ function App() {
             </Breadcrumb>
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4">
+        <div className="flex flex-1 flex-col">
         <Outlet />
         </div>
       </SidebarInset>

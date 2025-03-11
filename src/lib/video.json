@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "title": "Introduction to React",
+      "thumbnail": "thumbnails/react-intro.jpg",
+      "path": "../../videos/video1.mp4"
+    },
+    {
+      "id": 2,
+      "title": "Advanced JavaScript",
+      "thumbnail": "thumbnails/js-advanced.jpg",
+      "path": "../../videos/video2.mp4"
+    }
+  ]
+  

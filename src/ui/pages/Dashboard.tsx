@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../components/ui/button";
 import {
   Card,
@@ -9,7 +9,7 @@ import {
 import { BellRing, EllipsisVertical, Heart } from "lucide-react";
 import toy from "../assets/profile.png";
 import bgcover from "../assets/elearn.jpg";
-import t1 from "../assets/man-cover.png";
+import t1 from "../assets/teach.png";
 import t2 from "../assets/thumbchem5.webp";
 import t3 from "../assets/thumbnail6.png";
 import t4 from "../assets/thumnail.jpg";
@@ -19,29 +19,85 @@ import t7 from "../assets/elearn.jpg";
 import t8 from "../assets/thumbnail9.png";
 import t9 from "../assets/bg2.jpeg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+const eSubjects = [
+  {
+    name: "BIOLOGY",
+    title: "",
+    thumbnail: ""
+  },
+  {
+    name: "PHYSICS",
+    title: ""
+  },
+  {
+    name: "E-MATHEMATICS",
+    title: ""
+  },
+  {
+    name: "CHEMISTRY",
+    title: ""
+  },
+  {
+    name: "GEOGRAPHY",
+    title: ""
+  },
+  {
+    name: "ICT",
+    title: ""
+  },
+  {
+    name: "AGRICULTURE",
+    title: ""
+  },
+]
+const cSubjects = [
+  
+  {
+    name: "ENGLISH",
+    title: ""
+  },
+  {
+    name: "SOCIAL STUDIES",
+    title: ""
+  },
+  {
+    name: "INTEGRATED SCIENCE",
+    title: ""
+  },
+  {
+    name: "CORE MATHEMATICS",
+    title: ""
+  },
+]
+
 
 const Dashboard = () => {
+  const courses = useSelector((state: any) => state.courses); 
   return (
-    <div className="h-[900px]">
+    <div className=" p-4">
       {/* cover */}
-      <div className="relative w-full rounded-[15px] bg-blue-400 p-5 flex justify-between">
+      <div className="relative w-full rounded-[15px] bg-blue-400 p-5 flex justify-between overflow-hidden">
         <div className="w-[50%]  flex flex-col justify-between h-full text-white">
           <p className="text-[11px]">GES COURSES</p>
-          <h1 className="leading-9 text-[35px] font-medium mb-20">
+          <h1 className="leading-7.5 text-[30px] font-medium my-5">
             Enhance Your Knowledge with Comprehensive Senior High School Courses
           </h1>
+          <Link to="/lessons">
+            <Button className=" w-40 bg-black hover:bg-black hover:cursor-pointer">
+              Jump into Lessons
+            </Button>
+          </Link>
         </div>
         {/* image */}
-        <img
-          src={t1}
-          alt=""
-          width={500}
-          className="absolute right-0 -top-10 "
-        />
+        <div className="mt-5 h-40 w-90 flex items-center justify-center">
+          <img src={t1} alt="" width={350} className="bg-cover object-cover" />
+        </div>
       </div>
 
       {/* progress */}
-      <div className="grid gap-4 grid-cols-4 my-4 w-full  items-center justify-between">
+      <div className="grid gap-4 grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 my-4 w-full  items-center justify-between">
         {/* item */}
         <div className="flex items-center justify-between flex-1 bg-background shadow-md rounded-[10px] p-2">
           <div className="flex items-center justify-between">
@@ -104,13 +160,13 @@ const Dashboard = () => {
       <div className="py-4">
         <h1 className="font-medium py-4">Elective Subjects</h1>
         {/* e courses */}
-        <div className="grid grid-cols-4 items-center justify-between gap-4">
-          <Link to="/lessons">
-            <Card className="h-[300px] p-2 flex-1">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-between gap-4">
+          {eSubjects.map( (subject, index) =>
+            <Card className="h-[300px] p-2 flex-1" key={index}>
               <CardHeader className="p-0">
                 <div
                   style={{
-                    backgroundImage: `url(${t4})`,
+                    backgroundImage: `url(${t6})`,
                     backgroundSize: "cover",
                     objectFit: "contain",
                   }}
@@ -119,195 +175,48 @@ const Dashboard = () => {
               </CardHeader>
               <CardDescription className="p-0 m-0">
                 <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                  BIOLOGY
+                  {subject.name}
                 </p>
                 <p className="text-muted-foreground font-medium text-[14px]">
                   Introduction to Human Anatomy and Physiology
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">
-                {" "}
-                <Heart className="cursor-pointer text-blue-400" />
-              </CardFooter> 
-            </Card>
-          </Link>
-          <Card className="h-[300px] p-2 flex-1">
-            <CardHeader className="p-0">
-              <div
-                style={{
-                  backgroundImage: `url(${t3})`,
-                  backgroundSize: "cover",
-                  objectFit: "contain",
-                }}
-                className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
-              />
-            </CardHeader>
-            <CardDescription className="p-0 m-0">
-              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                PHYSICS
-              </p>
-              <p className="text-muted-foreground font-medium text-[14px]">
-                Atomic physics | The dual nature of electron
-              </p>
-            </CardDescription>
-            <CardFooter className="m-0 p-0 flex justify-end">
-              {" "}
-              <Heart className="cursor-pointer text-blue-400" />
-            </CardFooter>
-          </Card>
-          <Card className="h-[300px] p-2 flex-1">
-            <CardHeader className="p-0">
-              <div
-                style={{
-                  backgroundImage: `url(${t5})`,
-                  backgroundSize: "cover",
-                  objectFit: "contain",
-                }}
-                className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
-              />
-            </CardHeader>
-            <CardDescription className="p-0 m-0">
-              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                E-MATHEMATICS
-              </p>
-              <p className="text-muted-foreground font-medium text-[14px]">
-                Coordinate Geometry | Circle, lines and parabola
-              </p>
-            </CardDescription>
-            <CardFooter className="m-0 p-0 flex justify-end">
-              {" "}
-              <Heart className="cursor-pointer text-blue-400" />
-            </CardFooter>
-          </Card>
-          <Card className="h-[300px] p-2 flex-1">
-            <CardHeader className="p-0">
-              <div
-                style={{
-                  backgroundImage: `url(${t2})`,
-                  backgroundSize: "cover",
-                  objectFit: "contain",
-                }}
-                className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
-              />
-            </CardHeader>
-            <CardDescription className="p-0 m-0">
-              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                CHEMISTRY
-              </p>
-              <p className="text-muted-foreground font-medium text-[14px]">
-                State of matter | Chemical Kinetics and the kinetic theory of
-                Gases
-              </p>
-            </CardDescription>
-            <CardFooter className="m-0 p-0 flex justify-end">
-              {" "}
-              <Heart className="cursor-pointer text-blue-400" />
-            </CardFooter>
-          </Card>
+                <Link className="w-full" to="/lessons">
+                <Button className="w-full">Start Course</Button>
+                </Link>
+              </CardFooter>
+            </Card>)}
         </div>
         <h1 className="font-medium py-4">Core Subjects</h1>
         {/*core courses */}
-        <div className="grid grid-cols-4 items-center justify-between gap-4">
-          <Card className="h-[300px] p-2 flex-1">
-            <CardHeader className="p-0">
-              <div
-                style={{
-                  backgroundImage: `url(${t6})`,
-                  backgroundSize: "cover",
-                  objectFit: "contain",
-                }}
-                className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
-              />
-            </CardHeader>
-            <CardDescription className="p-0 m-0">
-              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                SOCIAL STUDIES
-              </p>
-              <p className="text-muted-foreground font-medium text-[14px]">
-                State of matter | Chemical Kinetics and the kinetic theory of
-                Gases
-              </p>
-            </CardDescription>
-            <CardFooter className="m-0 p-0 flex justify-end">
-              {" "}
-              <Heart className="cursor-pointer text-blue-400" />
-            </CardFooter>
-          </Card>
-          <Card className="h-[300px] p-2 flex-1">
-            <CardHeader className="p-0">
-              <div
-                style={{
-                  backgroundImage: `url(${t7})`,
-                  backgroundSize: "cover",
-                  objectFit: "contain",
-                }}
-                className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
-              />
-            </CardHeader>
-            <CardDescription className="p-0 m-0">
-              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                ENGLISH
-              </p>
-              <p className="text-muted-foreground font-medium text-[14px]">
-                State of matter | Chemical Kinetics and the kinetic theory of
-                Gases
-              </p>
-            </CardDescription>
-            <CardFooter className="m-0 p-0 flex justify-end">
-              {" "}
-              <Heart className="cursor-pointer text-blue-400" />
-            </CardFooter>
-          </Card>
-          <Card className="h-[300px] p-2 flex-1">
-            <CardHeader className="p-0">
-              <div
-                style={{
-                  backgroundImage: `url(${t8})`,
-                  backgroundSize: "cover",
-                  objectFit: "contain",
-                }}
-                className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
-              />
-            </CardHeader>
-            <CardDescription className="p-0 m-0">
-              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                INTERGRATED SCIENCE
-              </p>
-              <p className="text-muted-foreground font-medium text-[14px]">
-                State of matter | Chemical Kinetics and the kinetic theory of
-                Gases
-              </p>
-            </CardDescription>
-            <CardFooter className="m-0 p-0 flex justify-end">
-              {" "}
-              <Heart className="cursor-pointer text-blue-400" />
-            </CardFooter>
-          </Card>
-          <Card className="h-[300px] p-2 flex-1">
-            <CardHeader className="p-0">
-              <div
-                style={{
-                  backgroundImage: `url(${t9})`,
-                  backgroundSize: "cover",
-                  objectFit: "contain",
-                }}
-                className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
-              />
-            </CardHeader>
-            <CardDescription className="p-0 m-0">
-              <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                CORE MATHEMATICS
-              </p>
-              <p className="text-muted-foreground font-medium text-[14px]">
-                State of matter | Chemical Kinetics and the kinetic theory of
-                Gases
-              </p>
-            </CardDescription>
-            <CardFooter className="m-0 p-0 flex justify-end">
-              {" "}
-              <Heart className="cursor-pointer text-blue-400" />
-            </CardFooter>
-          </Card>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-between gap-4">
+        {cSubjects.map( (subject, index) =>
+            <Card className="h-[300px] p-2 flex-1" key={index}>
+              <CardHeader className="p-0">
+                <div
+                  style={{
+                    backgroundImage: `url(${t2})`,
+                    backgroundSize: "cover",
+                    objectFit: "contain",
+                  }}
+                  className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
+                />
+              </CardHeader>
+              <CardDescription className="p-0 m-0">
+                <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
+                  {subject.name}
+                </p>
+                <p className="text-muted-foreground font-medium text-[14px]">
+                  Introduction to Human Anatomy and Physiology
+                </p>
+              </CardDescription>
+              <CardFooter className="m-0 p-0 flex justify-end">
+                <Link className="w-full" to="/lessons">
+                <Button className="w-full">Start Course</Button>
+                </Link>
+              </CardFooter>
+            </Card>)}
         </div>
       </div>
     </div>
