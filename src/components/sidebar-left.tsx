@@ -41,9 +41,15 @@ const data = {
       icon: BookText,
     },
     {
-      title: "Notes",
-      url: "/notes",
+      title: "Notebook",
+      url: "/notebook",
       icon: NotebookPen,
+      badge: "10",
+    },
+    {
+      title: "Quiz",
+      url: "/quiz",
+      icon: BrainCircuit,
       badge: "10",
     },
   ],

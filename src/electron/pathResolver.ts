@@ -9,7 +9,15 @@ return path.join(
     "/dist-electron/preload.cjs"
 )
 }
+
 export function getVideoPath() {
+return path.join(
+    app.getAppPath(),
+    isDev() ? '.' : '..',
+    "/dist-electron"
+)
+}
+export function getNotePath() {
 return path.join(
     app.getAppPath(),
     isDev() ? '.' : '..',

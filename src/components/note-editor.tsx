@@ -1,66 +1,44 @@
+"use client";
+
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import Underline from "@tiptap/extension-underline";
-import Strike from "@tiptap/extension-strike";
-import BulletList from "@tiptap/extension-bullet-list";
-import OrderedList from "@tiptap/extension-ordered-list";
+import Color from "@tiptap/extension-color";
+import TextStyle from "@tiptap/extension-text-style";
 import ListItem from "@tiptap/extension-list-item";
-import Heading from "@tiptap/extension-heading";
-import { Bold, Italic, List, ListOrdered, Strikethrough, UnderlineIcon } from "lucide-react";
+import TaskList from "@tiptap/extension-task-list";
+import TaskItem from "@tiptap/extension-task-item";
+import TextAlign from "@tiptap/extension-text-align";
+import Underline from '@tiptap/extension-underline';
+import MenuBar from "./MenuBar";
 
-const NoteEditor = () => {
+const extensions = [
+  StarterKit.configure({
+    bulletList: { keepMarks: true, keepAttributes: false },
+    orderedList: { keepMarks: true, keepAttributes: false },
+  }),
+  Color.configure({ types: [TextStyle.name, ListItem.name] }),
+  TextStyle,
+  ListItem,
+  TaskList,
+  Underline,
+  TaskItem.configure({ nested: true }),
+  TextAlign.configure({ types: ["heading", "paragraph"] }),
+];
+
+const content = "Take notes here";
+
+const TipTapEditor = () => {
   const editor = useEditor({
-    extensions: [
-      StarterKit.configure({ 
-        bulletList: false, // Disable default to prevent conflicts
-        orderedList: false, // Disable default to prevent conflicts
-      }),
-      BulletList, // Add BulletList extension
-      OrderedList, // Add OrderedList extension
-      ListItem, // Add ListItem extension
-      Underline,
-      Strike,
-      Heading.configure({ levels: [1, 2, 3] }),
-    ],
-    content: "<p>Start writing here...</p>",
+    extensions,
+    content,
   });
 
-  if (!editor) return null;
-
   return (
-    <div className="editor bg-background">
-      {/* Toolbar */}
-      <div className="toolbar">
-        <button onClick={() => editor.chain().focus().toggleBold().run()}>
-          <Bold/>
-        </button>
-        <button onClick={() => editor.chain().focus().toggleItalic().run()}>
-          <Italic/>
-        </button>
-        <button onClick={() => editor.chain().focus().toggleUnderline().run()}>
-          <UnderlineIcon/>
-        </button>
-        <button onClick={() => editor.chain().focus().toggleStrike().run()}>
-          <Strikethrough/>
-        </button>
-        <button onClick={() => editor.chain().focus().toggleBulletList().run()}>
-        <List />
-        </button>
-        {/* <button onClick={() => editor.chain().focus().toggleOrderedList().run()}>
-          <ListOrdered/>
-        </button>
-        <button onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}>
-          H1
-        </button>
-        <button onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}>
-          H2
-        </button> */}
-      </div>
-
-      {/* Editor Content */}
-      <EditorContent editor={editor} />
+    <div className="bg-background border p-4">
+      <MenuBar editor={editor} />
+      <EditorContent editor={editor} className=" mt-2  p-2 rounded-md" />
     </div>
   );
 };
 
-export default NoteEditor;
+export default TipTapEditor;
