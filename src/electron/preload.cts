@@ -6,4 +6,5 @@ contextBridge.exposeInMainWorld("electronAPI", {
   saveText: (data: {filename: string, text: string}) => ipcRenderer.invoke("save-text", data),
   loadTextFiles: () => ipcRenderer.invoke("load-text-files"),
   readTextFile: (filePath: string) => ipcRenderer.invoke("read-text-file", filePath),
+  getPdfs: () => ipcRenderer.invoke("get-pdfs"),
 });

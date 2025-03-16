@@ -1,0 +1,66 @@
+import React from "react";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../../../components/ui/card";
+import { Button } from "../../../components/ui/button";
+
+const esubs = [
+  "Physics Quiz",
+  "Biology Quiz",
+  "Chemistry Quiz",
+  "E-Mathematics Quiz",
+  "Geography Quiz",
+  "Elective ICT Quiz",
+  "Agriculture Quiz",
+];
+const csubs = [
+  "Integrated Science Quiz",
+  "Core Mathematics Quiz",
+  "English Quiz",
+  "Social Studies Quiz",
+];
+
+const Quiz = () => {
+  return (
+    <div className="p-4">
+      <div className="pb-2 flex items-center justify-between">
+        <h1 className="flex-4 font-medium text-[20px] text-blue-400">
+          Quizzes
+        </h1>
+      </div>
+      <div className="">
+
+        <h1 className="font-medium mb-2">Elective Subjects</h1>
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-7">
+        {esubs.map((sub, index) => <Card className="p-2" key={index}>
+          <CardHeader className="p-0 font-medium">
+            <CardTitle>{sub}</CardTitle>
+            <CardDescription>A test based on A+ past questions</CardDescription>
+          </CardHeader>
+          <CardFooter className="w-full p-0">
+            <Button className="w-full">Start Quiz</Button>
+          </CardFooter>
+        </Card>)}
+      </div>
+        <h1 className="font-medium mb-2">Core Subjects</h1>
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {csubs.map((sub, index) => <Card className="p-2" key={index}>
+          <CardHeader className="p-0 font-medium">
+            <CardTitle>{sub}</CardTitle>
+            <CardDescription>A test based on A+ past questions</CardDescription>
+          </CardHeader>
+          <CardFooter className="w-full p-0">
+            <Button className="w-full">Start Quiz</Button>
+          </CardFooter>
+        </Card>)}
+      </div>
+      </div>
+    </div>
+  );
+};
+
+export default Quiz;

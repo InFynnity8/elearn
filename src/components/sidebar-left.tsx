@@ -8,8 +8,8 @@ import {
   BookText,
   Home,
   NotebookPen,
-  Settings2,
   LogOut,
+  Settings,
 } from "lucide-react"
 
 import { NavMain } from "./nav-main"
@@ -57,7 +57,7 @@ const data = {
     {
       title: "Settings",
       url: "/settings",
-      icon: Settings2,
+      icon: Settings,
     },
     {
       title: "Logout",

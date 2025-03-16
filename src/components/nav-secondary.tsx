@@ -29,8 +29,8 @@ export function NavSecondary({
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
                 <a href={item.url}>
-                  <item.icon />
-                  <span>{item.title}</span>
+                  <item.icon className={`${item.title === "Logout"? "text-red-500": ""}`}/>
+                  <span className={`${item.title === "Logout"? "text-red-500": ""}`}>{item.title}</span>
                 </a>
               </SidebarMenuButton>
               {item.badge && <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>}

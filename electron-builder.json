@@ -1,18 +1,18 @@
 {
-    "appId": "com.InFynnity.app",
-    "productName": "eClassroom",
-    "icon" : "./golden.png",
-    "files": [
-        "dist-electron", "dist-react"
-    ],
-    "win": {
-        "target": [ "portable","msi"]
-    },
-    "mac": {
-        "target": "dmg"
-    },
-    "linux": {
-        "target": "AppImage",
-        "category":"Utility"
-    }
+  "appId": "com.InFynnity.app",
+  "productName": "eClassroom",
+  "icon": "./golden.png",
+  "files": ["dist-electron", "dist-react"],
+  "extraResources": ["dist-electron/preload.cjs"],
+  "win": {
+    "target": ["portable", "msi"]
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage",
+    "category": "Utility"
+  }
 }
+ 

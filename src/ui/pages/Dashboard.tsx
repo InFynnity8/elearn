@@ -148,7 +148,7 @@ const Dashboard = () => {
       <div className="py-4">
       <div className="w-full flex justify-between items-center">
           <h1 className="font-medium py-4">Lessons</h1>
-          <Link to="/lessons" className="text-blue-400 text-[18px]">...more</Link>
+          <Link to="/lessons" className="text-blue-400 text-[18px]">view all...</Link>
         </div>
         {/*Lessons */}
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-between gap-4">
@@ -181,7 +181,7 @@ const Dashboard = () => {
         </div>
         <div className="w-full flex justify-between items-center">
           <h1 className="font-medium py-4">TextBooks</h1>
-          <Link to="/textbooks" className="text-blue-400 text-[18px]">...more</Link>
+          <Link to="/textbooks" className="text-blue-400 text-[18px]">view all...</Link>
         </div>
         {/*TextBooks*/}
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-between gap-4">
@@ -206,7 +206,7 @@ const Dashboard = () => {
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">
-                <Link className="w-full" to="/player">
+                <Link className="w-full" to="/reader">
                 <Button className="w-full">Start Reading</Button>
                 </Link>
               </CardFooter>

@@ -32,7 +32,6 @@ import {
   Bold,
   Italic,
   Strikethrough,
-  Heading1,
   List,
   Save,
 } from "lucide-react";
@@ -79,18 +78,6 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
         pressed={editor.isActive("strike")}
       >
         <Strikethrough className="w-5 h-5" />
-      </Toggle>
-      <Toggle
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        pressed={editor.isActive("heading", { level: 1 })}
-      >
-        <Heading1 className="w-5 h-5" />
-      </Toggle>
-      <Toggle
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        pressed={editor.isActive("bulletList")}
-      >
-        <List className="w-5 h-5" />
       </Toggle>
       <Select
         value={editor.getAttributes("textStyle").color || "default"}

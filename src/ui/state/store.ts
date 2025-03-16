@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import courseReducer from "./courseSlice.ts";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import authReducer from "./authSlice";
 
 const persistConfig = {
     key: "courses",
@@ -13,6 +14,7 @@ const persistConfig = {
 export const store = configureStore({
   reducer: {
     courses: persistedReducer,
+    auth: authReducer,
   },
 });
 

@@ -99,7 +99,7 @@ const TextBooks = () => {
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">
-                <Link className="w-full" to="/player">
+                <Link className="w-full" to="/reader">
                   <Button className="w-full">Start Reading</Button>
                 </Link>
               </CardFooter>
@@ -130,7 +130,7 @@ const TextBooks = () => {
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">
-                <Link className="w-full" to="/player">
+                <Link className="w-full" to={`/reader/${subject.name}`}>
                   <Button className="w-full">Start Reading</Button>
                 </Link>
               </CardFooter>

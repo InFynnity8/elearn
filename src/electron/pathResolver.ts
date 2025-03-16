@@ -10,6 +10,7 @@ return path.join(
 )
 }
 
+
 export function getVideoPath() {
 return path.join(
     app.getAppPath(),
@@ -18,6 +19,13 @@ return path.join(
 )
 }
 export function getNotePath() {
+return path.join(
+    app.getAppPath(),
+    isDev() ? '.' : '..',
+    "/dist-electron"
+)
+}
+export function getPdfPath() {
 return path.join(
     app.getAppPath(),
     isDev() ? '.' : '..',

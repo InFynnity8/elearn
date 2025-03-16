@@ -24,11 +24,26 @@ const iconMap: any = {
 };
 
 const CourseSelect = () => {
-  const courses = useSelector((state: any) => Object.values(state.courses).filter(course => typeof course === "object"));
+  // const courses = useSelector((state: any) => Object.values(state.courses).filter(course => typeof course === "object"));
+  const [courses, setCourses] = useState([
+    { name: "General Science", icon: "TestTube2", isActive: false },
+    { name: "General Arts", icon: "Book", isActive: false },
+    { name: "Business", icon: "BriefcaseBusiness", isActive: false },
+    { name: "Home Economics", icon: "CookingPot", isActive: false },
+    { name: "Visual Arts", icon: "Paintbrush", isActive: false },
+])
   const coursesArray = Object.values(courses);
-  coursesArray.pop()
   console.log(courses, coursesArray)
-  const dispatch = useDispatch();
+ 
+
+  const handleCourseClick = (selectedIndex: number) => {
+    setCourses((prevCourses) =>
+        prevCourses.map((course, index) => ({
+            ...course,
+            isActive: index === selectedIndex, // Activate only the selected course
+        }))
+    );
+};
 
   return (
     <div className="px-4">
@@ -41,7 +56,7 @@ const CourseSelect = () => {
           </div>
           <div className="flex flex-col gap-6">
             <div className="grid grid-cols-3 gap-2 md:grid-cols-4 xl:grid-cols-5">
-              {coursesArray.map((course, index) => {
+              {courses.map((course, index) => {
                 const IconComponent = iconMap[course.icon]; // Convert name back to component
                 return (
                   <Card
@@ -50,7 +65,8 @@ const CourseSelect = () => {
                       "hover:shadow-blue-400 hover:text-blue-400 transition-all cursor-pointer",
                       course.isActive ? "shadow-blue-400 text-blue-400 " : ""
                     )}
-                    onClick={() => dispatch(activateCourse(index))}
+                    // onClick={() => dispatch(activateCourse(index))}
+                    onClick={() => handleCourseClick(index)}
                   >
                     <CardContent className="flex items-center justify-center">
                       <IconComponent size={50} />

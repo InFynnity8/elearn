@@ -5,9 +5,6 @@ import { IoIosClose } from "react-icons/io";
 import { Input } from "./ui/input";
 import { MdOutlineLiveTv } from "react-icons/md";
 import NoteEditor from "./note-editor";
-import { Textarea } from "./ui/textarea";
-import { Button } from "./ui/button";
-import { Save } from "lucide-react";
 
 
 
@@ -16,15 +13,15 @@ type Video = {
   path: string;
 };
 
-type VideoMetadata = {
-  duration: number;
-  title: string;
-};
+// type VideoMetadata = {
+//   duration: number;
+//   title: string;
+// };
 
 const VideoList = () => {
   const [videos, setVideos] = useState<Video[]>([]);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [metadata, setMetadata] = useState<VideoMetadata | null>(null);
+  // const [metadata, setMetadata] = useState<VideoMetadata | null>(null);
 
   useEffect(() => {
     window.electronAPI.getVideos().then((videoList: Video[]) => {
@@ -37,29 +34,29 @@ const VideoList = () => {
 
   const selectVideo = async (videoPath: string) => {
     setSelectedVideo(videoPath);
-    const data = await window.electronAPI.getVideoMetadata(videoPath);
-    setMetadata(data);
+    // const data = await window.electronAPI.getVideoMetadata(videoPath);
+    // setMetadata(data);
   };
 
   return (
     <div className="flex flex-col xl:flex-row">
       {/* Video Player */}
-      <div className="w-full xl:flex-5">
+      <div className="w-full xl:w-3/4 ">
         {selectedVideo && (
-          <>
+          <div className="">
             <Plyr
               source={{
                 type: "video",
                 sources: [{ src: selectedVideo, type: "video/mp4" }],
               }}
             />
-            {metadata && (
+            {/* {metadata && (
               <div className="p-4">
                 <h2 className="text-xl font-bold ">Title: {metadata.title}</h2>
                 <p>Duration: {metadata.duration.toFixed(2)} sec</p>
               </div>
-            )}
-          </>
+            )} */}
+          </div>
         )}
         <div className=" w-full p-2">
           <NoteEditor />
@@ -67,15 +64,14 @@ const VideoList = () => {
       </div>
 
       {/* Video List */}
-      <div className="xl:flex-2 bg-background overflow-auto h-screen">
-        <div className=" flex items-center justify-between font-bold text-[17px] w-full px-5 py-2 border-b-[1px] border-t-[1px]">
+      <div className="w-full bg-background overflow-auto h-screen xl:fixed xl:right-0 xl:w-[270px]">
+        <div className=" flex items-center justify-between font-medium text-[17px] w-full px-5 py-2 border-b-[1px] border-t-[1px]">
           <h1>Course content</h1>
           <IoIosClose size={20} className="hover:cursor-pointer" />
         </div>
         {videos.map((video) => (
-          <>
+          <div key={video.name}>
             <button
-              key={video.name}
               className={`block h-20 w-full border-b-[1px] p-2 text-left ${
                 selectedVideo === video.path
                   ? "bg-blue-500 text-white"
@@ -99,7 +95,7 @@ const VideoList = () => {
                 <p className="text-gray-400 text-[12px] mx-1">17min</p>
               </div>
             </button>
-          </>
+          </div>
         ))}
       </div>
     </div>

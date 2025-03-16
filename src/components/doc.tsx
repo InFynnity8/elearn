@@ -30,23 +30,21 @@ export default function SavedTexts() {
 
 
       {/* files and reader preview */}
-      <div className=" flex gap-2">
+      <div className=" flex gap-2 ">
       <ul className="bg-white flex-6 rounded-[5px]">
-        {files.map((file) => (
+        {files.length !== 0 ? files.map((file) => (
           <li
             key={file.name}
             className="w-full flex items-center justify-between border-b-2 p-2 hover:bg-blue-400 hover:text-white cursor-pointer"
           >
-            <div className="flex items-center justify-between flex-4 lg:flex-3 xl:flex-2">
+            <div className="flex flex-1 items-center">
               <File size={20} />
-              {/* description */}
-              {/* name */}
-              <div className=""> {file.name}</div>
-              {/* date created */}
-              <div className="">20th June</div>
+               <div className="px-2">
+                {file.name}
+                </div> 
             </div>
             {/*action buttons */}
-            <div className="flex-4 flex justify-end gap-2">
+            <div className="flex-1 flex justify-end gap-2">
               <Button onClick={() => handleReadFile(file.path)} variant="ghost">
                 <BookOpen />
               </Button>
@@ -58,7 +56,7 @@ export default function SavedTexts() {
               </Button>
             </div>
           </li>
-        ))}
+        )) : <div className="text-gray-500 w-full h-full flex items-center justify-center"><p>Notes saved during lessons will apear here</p></div>}
       </ul>
       {selectedText ? <div className="pointer-events-none flex-3 bg-white border rounded-[5px] p-2">{selectedText}</div> : <div className="pointer-events-none flex flex-3 justify-center items-center bg-white border rounded-[5px] p-2">Preview</div>}
       </div>

@@ -2,8 +2,8 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import path from "path";
 import { isDev } from "./util.js";
 import fs from "fs";
-import { getNotePath, getPreloadPath, getVideoPath } from "./pathResolver.js";
-import ffmpeg from "fluent-ffmpeg";
+import { getNotePath, getPreloadPath, getVideoPath, getPdfPath } from "./pathResolver.js";
+// import ffmpeg from "fluent-ffmpeg";
 
 app.on("ready", () => {
   // create a new window
@@ -23,6 +23,7 @@ app.on("ready", () => {
     mainWindow.loadURL("http://localhost:5123");
   } else {
     mainWindow.loadFile(path.join(app.getAppPath(), "/dist-react/index.html"));
+    // console.log(app.getAppPath())
   }
 
   // API requests
@@ -40,26 +41,29 @@ app.on("ready", () => {
   });
 
   // get video metadata
-  ipcMain.handle("get-video-metadata", async (event, videoPath) => {
-    return new Promise((resolve, reject) => {
-      ffmpeg.ffprobe(videoPath, (err, metadata) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve({
-            duration: metadata.format.duration,
-            title: metadata.format.tags?.title || path.basename(videoPath),
-          });
-        }
-      });
-    });
-  });
+  // ipcMain.handle("get-video-metadata", async (event, videoPath) => {
+  //   return new Promise((resolve, reject) => {
+  //     ffmpeg.ffprobe(videoPath, (err, metadata) => {
+  //       if (err) {
+  //         reject(err);
+  //       } else {
+  //         resolve({
+  //           duration: metadata.format.duration,
+  //           title: metadata.format.tags?.title || path.basename(videoPath),
+  //         });
+  //       }
+  //     });
+  //   });
+  // });
 
   // save note
   ipcMain.handle("save-text", async (_, data) => {
     const { filename, text } = data; // Extract filename and text
     if (!filename) return null;
     const notesFolder = path.join(getNotePath(), "notes");
+    if (!fs.existsSync(notesFolder)) {
+      fs.mkdirSync(notesFolder, { recursive: true });
+    }
     const savePath = path.join(notesFolder, filename + ".txt");
     fs.writeFileSync(savePath, text, "utf-8");
     return savePath;
@@ -68,7 +72,7 @@ app.on("ready", () => {
   // Load all saved text files
   ipcMain.handle("load-text-files", async () => {
     try {
-      const directory = path.join(getNotePath(), "notes");
+      const directory = path.join(getNotePath(), "notes");  
       const files = fs
         .readdirSync(directory)
         .filter((file) => file.endsWith(".txt"));
@@ -90,4 +94,25 @@ app.on("ready", () => {
       return { success: false, error: (error as Error).message };
     }
   });
+});
+
+// Define the directory where PDFs are stored
+const pdfDirectory = path.join(getPdfPath(), "books");
+
+// Function to get all PDFs
+ipcMain.handle("get-pdfs", async () => {
+  try {
+    if (!fs.existsSync(pdfDirectory)) {
+      fs.mkdirSync(pdfDirectory, { recursive: true });
+    }
+
+    const files = fs.readdirSync(pdfDirectory).filter((file) => file.endsWith(".pdf"));
+    return files.map((file) => ({
+      name: file,
+      path: path.join(pdfDirectory, file),
+    }));
+  } catch (error) {
+    console.error("Error reading PDF files:", error);
+    return [];
+  }
 });

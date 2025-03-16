@@ -1,15 +1,22 @@
-import { BrainCog, GalleryVerticalEnd } from "lucide-react";
-
+import { BrainCog } from "lucide-react";
+import {useDispatch, useSelector} from "react-redux"
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Link } from "react-router-dom";
+import { ReactState } from '../ui/state/store.ts'
+import { login } from "../ui/state/authSlice.ts";
 
 export function SignUpForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+
+  
+const isAuthenticated = useSelector((state: ReactState) => state.auth)
+const dispatch = useDispatch();
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <form>
@@ -42,7 +49,7 @@ export function SignUpForm({
             </div>
 
             <Link to="/courseselect">
-              <Button type="submit" className="w-full hover:cursor-pointer">
+              <Button type="submit" className="w-full hover:cursor-pointer" onClick={() => dispatch(login())}>
                 Login
               </Button>
             </Link>
