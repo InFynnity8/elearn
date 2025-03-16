@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "../../../components/ui/card";
 import { Button } from "../../../components/ui/button";
+import { Link } from "react-router-dom";
 
 const esubs = [
   "Physics Quiz",
@@ -33,31 +34,42 @@ const Quiz = () => {
         </h1>
       </div>
       <div className="">
-
         <h1 className="font-medium mb-2">Elective Subjects</h1>
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-7">
-        {esubs.map((sub, index) => <Card className="p-2" key={index}>
-          <CardHeader className="p-0 font-medium">
-            <CardTitle>{sub}</CardTitle>
-            <CardDescription>A test based on A+ past questions</CardDescription>
-          </CardHeader>
-          <CardFooter className="w-full p-0">
-            <Button className="w-full">Start Quiz</Button>
-          </CardFooter>
-        </Card>)}
-      </div>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-7">
+          {esubs.map((sub, index) => (
+            <Card className="p-2" key={index}>
+              <CardHeader className="p-0 font-medium">
+                <CardTitle>{sub}</CardTitle>
+                <CardDescription>
+                  A test based on A+ past questions
+                </CardDescription>
+              </CardHeader>
+              <CardFooter className="w-full p-0">
+                <Link to="/quizlet" className="w-full">
+                  <Button className="w-full">Start Quiz</Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
         <h1 className="font-medium mb-2">Core Subjects</h1>
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {csubs.map((sub, index) => <Card className="p-2" key={index}>
-          <CardHeader className="p-0 font-medium">
-            <CardTitle>{sub}</CardTitle>
-            <CardDescription>A test based on A+ past questions</CardDescription>
-          </CardHeader>
-          <CardFooter className="w-full p-0">
-            <Button className="w-full">Start Quiz</Button>
-          </CardFooter>
-        </Card>)}
-      </div>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {csubs.map((sub, index) => (
+            <Card className="p-2" key={index}>
+              <CardHeader className="p-0 font-medium">
+                <CardTitle>{sub}</CardTitle>
+                <CardDescription>
+                  A test based on A+ past questions
+                </CardDescription>
+              </CardHeader>
+              <CardFooter className="w-full p-0">
+                <Link to="/quizlet" className="w-full">
+                  <Button className="w-full">Start Quiz</Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );

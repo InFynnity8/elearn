@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Reader from "./pages/TextBooks/Reader.tsx";
 import {useSelector} from "react-redux"
 import { ReactState } from './state/store.ts';
+import Quizlet from './pages/Quiz/Quizlet.tsx';
 
 const Router = () => {
     const isAuthenticated = useSelector((state: ReactState) => state.auth)
@@ -35,6 +36,7 @@ const Router = () => {
               <Route path="reader" element={<Reader />} />
               <Route path="notebook" element={<Notebook />} />
               <Route path="quiz" element={<Quiz />} />
+              <Route path="quizlet" element={<Quizlet />} />
             </Route>
           </Routes>
         </BrowserRouter>
