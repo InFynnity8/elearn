@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Card,
   CardDescription,
@@ -45,7 +44,7 @@ const Quiz = () => {
                 </CardDescription>
               </CardHeader>
               <CardFooter className="w-full p-0">
-                <Link to="/quizlet" className="w-full">
+                <Link to={`/quizlet/${sub}`} className="w-full">
                   <Button className="w-full">Start Quiz</Button>
                 </Link>
               </CardFooter>
@@ -63,7 +62,7 @@ const Quiz = () => {
                 </CardDescription>
               </CardHeader>
               <CardFooter className="w-full p-0">
-                <Link to="/quizlet" className="w-full">
+                <Link to={`/quizlet/${sub}`} className="w-full">
                   <Button className="w-full">Start Quiz</Button>
                 </Link>
               </CardFooter>

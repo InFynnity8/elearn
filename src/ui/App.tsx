@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { SidebarLeft } from "../components/sidebar-left"
-import { SidebarRight } from "../components/sidebar-right"
-import { Location } from 'react-router-dom'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -35,7 +32,7 @@ const data = {
 };
 
 function App() {
-  const location = useLocation()
+  // const location = useLocation()
 
   return (
     <> 
@@ -45,12 +42,12 @@ function App() {
         <header className="sticky top-0 flex h-16 shrink-0 items-center gap-2 bg-background z-50">
           <div className="flex flex-1 items-center gap-2 px-3 justify-between">
             <SidebarTrigger />
+                    {/* {location.pathname.replace("/", ">")} */}
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbPage className="line-clamp-1 capitalize">
-                    {/* {location.pathname.replace("/", "")} */}
                      <NavUser user={data.user} />
                   </BreadcrumbPage>
                 </BreadcrumbItem>

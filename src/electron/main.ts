@@ -7,6 +7,8 @@ import { getNotePath, getPreloadPath, getVideoPath, getPdfPath } from "./pathRes
 
 app.on("ready", () => {
   // create a new window
+  console.log(path.join(app.getAppPath(), "/dist-react/index.html"))
+  console.log("ready")
   const mainWindow = new BrowserWindow({
     minWidth: 800,
     height: 600,
@@ -23,7 +25,6 @@ app.on("ready", () => {
     mainWindow.loadURL("http://localhost:5123");
   } else {
     mainWindow.loadFile(path.join(app.getAppPath(), "/dist-react/index.html"));
-    // console.log(app.getAppPath())
   }
 
   // API requests

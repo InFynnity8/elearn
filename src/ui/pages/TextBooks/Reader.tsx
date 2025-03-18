@@ -1,10 +1,8 @@
 import PdfList from '../../../components/pdf-list'
 
-import React from 'react'
-
 const Reader = () => {
   return (
-    <div>
+    <div className='overflow-hidden'>
         <PdfList/>
     </div>
   )

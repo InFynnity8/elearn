@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { activateCourse } from "../../state/courseSlice.ts";
 import {
   Book,
-  BrainCog,
   BriefcaseBusiness,
   CookingPot,
   Paintbrush,
@@ -14,6 +13,7 @@ import { cn } from "../../../lib/utils";
 import { Button } from "../../../components/ui/button";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "../../../components/ui/card";
+import { ReactState } from "../../state/store.ts";
 
 const iconMap: any = {
   TestTube2: TestTube2,
@@ -24,25 +24,27 @@ const iconMap: any = {
 };
 
 const CourseSelect = () => {
-  // const courses = useSelector((state: any) => Object.values(state.courses).filter(course => typeof course === "object"));
-  const [courses, setCourses] = useState([
-    { name: "General Science", icon: "TestTube2", isActive: false },
-    { name: "General Arts", icon: "Book", isActive: false },
-    { name: "Business", icon: "BriefcaseBusiness", isActive: false },
-    { name: "Home Economics", icon: "CookingPot", isActive: false },
-    { name: "Visual Arts", icon: "Paintbrush", isActive: false },
-])
-  const coursesArray = Object.values(courses);
-  console.log(courses, coursesArray)
- 
+  const courses = useSelector((state: ReactState) => state.courses);
+//   const [courses, setCourses] = useState([
+//     { name: "General Science", icon: "TestTube2", isActive: false },
+//     { name: "General Arts", icon: "Book", isActive: false },
+//     { name: "Business", icon: "BriefcaseBusiness", isActive: false },
+//     { name: "Home Economics", icon: "CookingPot", isActive: false },
+//     { name: "Visual Arts", icon: "Paintbrush", isActive: false },
+// ])
+
+const [activeCourse, setActiveCourse] = useState("")
+const dispatch = useDispatch()
 
   const handleCourseClick = (selectedIndex: number) => {
-    setCourses((prevCourses) =>
-        prevCourses.map((course, index) => ({
-            ...course,
-            isActive: index === selectedIndex, // Activate only the selected course
-        }))
-    );
+    setActiveCourse(courses[selectedIndex].name)
+    dispatch(activateCourse(selectedIndex))
+    // setCourses((prevCourses) =>
+    //     prevCourses.map((course, index) => ({
+    //         ...course,
+    //         isActive: index === selectedIndex, // Activate only the selected course
+    //     }))
+    // );
 };
 
   return (
@@ -65,7 +67,6 @@ const CourseSelect = () => {
                       "hover:shadow-blue-400 hover:text-blue-400 transition-all cursor-pointer",
                       course.isActive ? "shadow-blue-400 text-blue-400 " : ""
                     )}
-                    // onClick={() => dispatch(activateCourse(index))}
                     onClick={() => handleCourseClick(index)}
                   >
                     <CardContent className="flex items-center justify-center">
@@ -78,8 +79,8 @@ const CourseSelect = () => {
                 );
               })}
             </div>
-            <div className="w-full flex items-center justify-end">
-              <Link to="/">
+            <div className="w-full flex items-center justify-end"> 
+              <Link to={`/${activeCourse}`}>
                 <Button type="submit" className="hover:cursor-pointer">
                   Finish
                 </Button>

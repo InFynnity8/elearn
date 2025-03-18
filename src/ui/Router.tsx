@@ -1,4 +1,3 @@
-import React from 'react'
 import App from "./App.tsx";
 import SignUp from "./pages/auth/SignUp.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
@@ -8,17 +7,18 @@ import Notebook from "./pages/Notebook.tsx";
 import TextBooks from "./pages/TextBooks/TextBooks.tsx";
 import Quiz from "./pages/Quiz/Quiz.tsx";
 import CourseSelect from "./pages/auth/CourseSelect.tsx";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { MemoryRouter, Routes, Route, Navigate } from "react-router-dom";
 import Reader from "./pages/TextBooks/Reader.tsx";
 import {useSelector} from "react-redux"
 import { ReactState } from './state/store.ts';
 import Quizlet from './pages/Quiz/Quizlet.tsx';
 
 const Router = () => {
-    const isAuthenticated = useSelector((state: ReactState) => state.auth)
+    const {isAuthenticated} = useSelector((state: ReactState) => state.auth)
+    console.log(isAuthenticated)
   return (
     <div>
-        <BrowserRouter>
+        <MemoryRouter>
           <Routes>
             {/* Public Routes */}
             <Route path="/signup" element={<SignUp />} />
@@ -29,17 +29,17 @@ const Router = () => {
               // element={ <App />}
               element={isAuthenticated ? <App /> : <Navigate to="/signup" />}
             >
-              <Route index element={<Dashboard />} />
+              <Route index path=":course" element={<Dashboard />} />
               <Route path="lessons" element={<Lessons />} />
-              <Route path="player" element={<Player />} />
+              <Route path="player/:subject" element={<Player />} />
               <Route path="textbooks" element={<TextBooks />} />
-              <Route path="reader" element={<Reader />} />
+              <Route path="reader/:subject" element={<Reader />} />
               <Route path="notebook" element={<Notebook />} />
               <Route path="quiz" element={<Quiz />} />
-              <Route path="quizlet" element={<Quizlet />} />
+              <Route path="quizlet/:subject" element={<Quizlet />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </MemoryRouter>
     </div>
   )
 }

@@ -17,8 +17,8 @@ import t6 from "../../assets/thumnail2.webp";
 import t7 from "../assets/elearn.jpg";
 import t8 from "../../assets/thumbnail9.png";
 import t9 from "../../assets/bg2.jpeg";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const eSubjects = [
   {
@@ -99,7 +99,7 @@ const Lessons = () => {
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">
-                <Link className="w-full" to="/player">
+                <Link className="w-full" to={`/player/${subject.name}`}>
                   <Button className="w-full">Start Course</Button>
                 </Link>
               </CardFooter>
@@ -130,7 +130,7 @@ const Lessons = () => {
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">
-                <Link className="w-full" to="/player">
+                <Link className="w-full" to={`/player/${subject.name}`}>
                   <Button className="w-full">Start Course</Button>
                 </Link>
               </CardFooter>

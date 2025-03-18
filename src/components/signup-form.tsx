@@ -1,11 +1,10 @@
 import { BrainCog } from "lucide-react";
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Link } from "react-router-dom";
-import { ReactState } from '../ui/state/store.ts'
 import { login } from "../ui/state/authSlice.ts";
 
 export function SignUpForm({
@@ -13,8 +12,6 @@ export function SignUpForm({
   ...props
 }: React.ComponentProps<"div">) {
 
-  
-const isAuthenticated = useSelector((state: ReactState) => state.auth)
 const dispatch = useDispatch();
 
   return (

@@ -18,8 +18,13 @@ import t6 from "../assets/thumnail2.webp";
 import t7 from "../assets/elearn.jpg";
 import t8 from "../assets/thumbnail9.png";
 import t9 from "../assets/bg2.jpeg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import biologyCover from "../assets/bookcover/biology_textbook.png";
+import chemistryCover from "../assets/bookcover/chemistry.jpg";
+import mathCover from "../assets/bookcover/maths.png.jpg";
+import physicsCover from "../assets/bookcover/physics1.jpg";
+import physics2Cover from "../assets/bookcover/physics.jpg";
 
 const eSubjects = [
   {
@@ -41,35 +46,39 @@ const eSubjects = [
   }
 ]
 const cSubjects = [
-  
   {
     name: "ENGLISH",
-    title: ""
+    title: "",
+    thumbnail: physics2Cover,
   },
   {
     name: "SOCIAL STUDIES",
-    title: ""
+    title: "",
+    thumbnail: chemistryCover,
   },
   {
     name: "INTEGRATED SCIENCE",
-    title: ""
+    title: "",
+    thumbnail: biologyCover,
   },
   {
     name: "CORE MATHEMATICS",
-    title: ""
-  }
-]
+    title: "",
+    thumbnail: mathCover,
+  },
+];
 
 
 const Dashboard = () => {
-  const courses = useSelector((state: any) => state.courses); 
-  return (
+  // const courses = useSelector((state: any) => state.courses); 
+  const {course} = useParams()
+  return ( 
     <div className=" p-4">
       {/* cover */}
       <div className="relative w-full rounded-[15px] bg-blue-400 p-5 flex justify-between overflow-hidden">
         <div className="w-[50%]  flex flex-col justify-between h-full text-white">
-          <p className="text-[11px]">GES COURSES</p>
-          <h1 className="leading-7.5 text-[30px] font-medium my-5">
+          <p className="text-[11px]">{course}</p>
+          <h1 className="leading-5 text-[20px] lg:leading-6 lg:text-[25px] xl:leading-7.5 xl:text-[30px] font-medium my-5">
             Enhance Your Knowledge with Comprehensive Senior High School Courses
           </h1>
           <Link to="/quiz">
@@ -186,31 +195,24 @@ const Dashboard = () => {
         {/*TextBooks*/}
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center justify-between gap-4">
         {cSubjects.map( (subject, index) =>
-            <Card className="h-[300px] p-2 flex-1" key={index}>
-              <CardHeader className="p-0">
-                <div
-                  style={{
-                    backgroundImage: `url(${t7})`,
-                    backgroundSize: "cover",
-                    objectFit: "contain",
-                  }}
-                  className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
-                />
-              </CardHeader>
-              <CardDescription className="p-0 m-0">
-                <p className="text-[14px] text-blue-400 p-1 font-medium bg-muted w-fit pointer-events-none">
-                  {subject.name}
-                </p>
-                <p className="text-muted-foreground font-medium text-[14px]">
-                  Aki Ola
-                </p>
-              </CardDescription>
-              <CardFooter className="m-0 p-0 flex justify-end">
-                <Link className="w-full" to="/reader">
-                <Button className="w-full">Start Reading</Button>
-                </Link>
-              </CardFooter>
-            </Card>)}
+            <Card
+                          className="h-[300px] pt-7 flex-1 flex flex-col items-center"
+                          key={index}
+                        >
+                          <div className="h-full overflow-hidden">
+                            <img
+                              src={subject.thumbnail}
+                              alt="cover"
+                              width={150}
+                              height={150}
+                            />
+                          </div>
+                          <CardFooter className="w-full m-0 px-7 flex justify-end">
+                            <Link className="w-full" to={`/reader/${subject.name}`}>
+                              <Button className="w-full">Start Reading</Button>
+                            </Link>
+                          </CardFooter>
+                        </Card>)}
         </div>
       </div>
     </div>

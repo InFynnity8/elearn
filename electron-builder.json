@@ -5,7 +5,7 @@
   "files": ["dist-electron", "dist-react"],
   "extraResources": ["dist-electron/preload.cjs"],
   "win": {
-    "target": ["portable", "msi"]
+    "target": ["portable"]
   },
   "mac": {
     "target": "dmg"

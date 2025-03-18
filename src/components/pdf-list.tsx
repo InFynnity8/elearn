@@ -1,16 +1,33 @@
 import { useEffect, useState } from "react";
 import { IoIosClose } from "react-icons/io";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Document, Page, pdfjs } from "react-pdf";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
   import.meta.url
 ).toString();
+
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import biologyCover from "../ui/assets/bookcover/biology_textbook.png"
+import chemistryCover from "../ui/assets/bookcover/chemistry.jpg"
+import mathCover from "../ui/assets/bookcover/maths.png.jpg"
+import physicsCover from "../ui/assets/bookcover/physics1.jpg"
+import physics2Cover from "../ui/assets/bookcover/physics.jpg"
+
+const covers = [
+  physicsCover,
+  physics2Cover,
+  mathCover,
+  chemistryCover,
+  biologyCover,
+  physics2Cover,
+  chemistryCover
+]
+
 
 type PdfFile = {
   name: string;
@@ -22,8 +39,7 @@ const PdfList = () => {
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const param = useParams();
-  console.log(param);
+  // const {subject} = useParams();
 
   useEffect(() => {
     window.electronAPI.getPdfs().then((pdfList: PdfFile[]) => {
@@ -73,12 +89,15 @@ const PdfList = () => {
             <Document
               file={selectedPdf}
               onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-              className="w-full flex justify-center items-center"
+              className="w-full flex justify-center items-center flex-col"
             >
               <Page
                 pageNumber={pageNumber}
                 className="justify-center w-full flex "
               />
+              {/* {Array.from({ length: numPages }, (_, index) => (
+                <Page key={index} pageNumber={index + 1} />
+              ))} */}
             </Document>
           </div>
         )}
@@ -90,7 +109,7 @@ const PdfList = () => {
           <h1>Books</h1>
           <IoIosClose size={20} className="hover:cursor-pointer" />
         </div>
-        {pdfs.map((pdf) => (
+        {pdfs.map((pdf, index) => (
           <div key={pdf.name}>
             <button
               className={`block h-20 w-full border-b-[1px] p-2 text-left ${
@@ -98,11 +117,15 @@ const PdfList = () => {
                   ? "bg-blue-500 text-white"
                   : "bg-background"
               }`}
-              onClick={() => {setSelectedPdf(pdf.path); setPageNumber(1)}}
+              onClick={() => {
+                setSelectedPdf(pdf.path);
+                setPageNumber(1);
+              }}
             >
-              <div className="flex items-start">
-                <div className="truncate h-5">
-                  <h1 className="leading-5 truncate">
+              <div className="flex items-center  h-full w-full">
+                <img src={covers[index]} alt="cover" width={50} height={50} className="mr-2"/>
+                <div className="truncate h-full flex items-center w-full">
+                  <h1 className="truncate leading-5 w-full">
                     {pdf.name.slice(0, -4)}
                   </h1>
                 </div>
