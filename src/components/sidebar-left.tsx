@@ -129,7 +129,7 @@ export function SidebarLeft({
   
 
   return (
-    <Sidebar className="border-r-0" {...props}>
+    <Sidebar collapsible="icon" className="border-r-0" {...props}>
       <SidebarHeader>
         <div className="w-full flex items-center justify-center mb-6 mt-2 pointer-events-none pr-4">
           <BrainCog className="size-8 text-blue-400" />
