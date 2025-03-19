@@ -25,27 +25,21 @@ const iconMap: any = {
 
 const CourseSelect = () => {
   const courses = useSelector((state: ReactState) => state.courses);
-//   const [courses, setCourses] = useState([
-//     { name: "General Science", icon: "TestTube2", isActive: false },
-//     { name: "General Arts", icon: "Book", isActive: false },
-//     { name: "Business", icon: "BriefcaseBusiness", isActive: false },
-//     { name: "Home Economics", icon: "CookingPot", isActive: false },
-//     { name: "Visual Arts", icon: "Paintbrush", isActive: false },
-// ])
+  //   const [courses, setCourses] = useState([
+  //     { name: "General Science", icon: "TestTube2", isActive: false },
+  //     { name: "General Arts", icon: "Book", isActive: false },
+  //     { name: "Business", icon: "BriefcaseBusiness", isActive: false },
+  //     { name: "Home Economics", icon: "CookingPot", isActive: false },
+  //     { name: "Visual Arts", icon: "Paintbrush", isActive: false },
+  // ])
 
-const [activeCourse, setActiveCourse] = useState("")
-const dispatch = useDispatch()
+  const [activeCourse, setActiveCourse] = useState("");
+  const dispatch = useDispatch();
 
   const handleCourseClick = (selectedIndex: number) => {
-    setActiveCourse(courses[selectedIndex].name)
-    dispatch(activateCourse(selectedIndex))
-    // setCourses((prevCourses) =>
-    //     prevCourses.map((course, index) => ({
-    //         ...course,
-    //         isActive: index === selectedIndex, // Activate only the selected course
-    //     }))
-    // );
-};
+    setActiveCourse(courses[selectedIndex].name);
+    dispatch(activateCourse(selectedIndex));
+  };
 
   return (
     <div className="px-4">
@@ -79,12 +73,10 @@ const dispatch = useDispatch()
                 );
               })}
             </div>
-            <div className="w-full flex items-center justify-end"> 
-              <Link to={`/${activeCourse}`}>
-                <Button type="submit" className="hover:cursor-pointer">
-                  Finish
-                </Button>
-              </Link>
+            <div className="w-full flex items-center justify-end">
+              <Button type="submit" className="hover:cursor-pointer" disabled={activeCourse === ""}>
+                <Link to={`/${activeCourse}`}>Finish</Link>
+              </Button>
             </div>
           </div>
         </div>

@@ -17,6 +17,157 @@ import {
 const questions = [
   {
     questionText:
+      "Which type of intermolecular force is responsible for the anomalously high boiling point of hydrogen fluoride?",
+    answerOptions: [
+      { answerText: "Van der Waals forces", isCorrect: false },
+      { answerText: "Hydrogen bonding", isCorrect: true },
+      { answerText: "Dipole-dipole interactions", isCorrect: false },
+      { answerText: "Covalent bonding", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Hydrogen bonding",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "In mitochondrial electron transport, what is the role of cytochrome c?",
+    answerOptions: [
+      {
+        answerText: "It directly phosphorylates ADP to form ATP",
+        isCorrect: false,
+      },
+      {
+        answerText: "It transfers electrons between complex III and complex IV",
+        isCorrect: true,
+      },
+      {
+        answerText: "It functions as the primary electron donor",
+        isCorrect: false,
+      },
+      {
+        answerText: "It regulates proton flow across the membrane",
+        isCorrect: false,
+      },
+    ],
+    isAnswered: false,
+    answer: "It transfers electrons between complex III and complex IV",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which DNA repair mechanism is primarily used to correct thymine dimers caused by UV radiation?",
+    answerOptions: [
+      { answerText: "Base excision repair", isCorrect: false },
+      { answerText: "Nucleotide excision repair", isCorrect: true },
+      { answerText: "Mismatch repair", isCorrect: false },
+      { answerText: "Non-homologous end joining", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Nucleotide excision repair",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "What is the theoretical maximum efficiency of ATP synthesis per glucose molecule in aerobic respiration?",
+    answerOptions: [
+      { answerText: "36 ATP", isCorrect: false },
+      { answerText: "38 ATP", isCorrect: true },
+      { answerText: "32 ATP", isCorrect: false },
+      { answerText: "40 ATP", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "38 ATP",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which of the following proteins is involved in chromosomal condensation during mitosis?",
+    answerOptions: [
+      { answerText: "Cohesin", isCorrect: false },
+      { answerText: "Condensin", isCorrect: true },
+      { answerText: "Histone H1", isCorrect: false },
+      { answerText: "Topoisomerase II", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Condensin",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "In quantum biology, which enzyme is proposed to use quantum tunneling to enhance reaction rates?",
+    answerOptions: [
+      { answerText: "Hexokinase", isCorrect: false },
+      { answerText: "Dehydrogenase", isCorrect: false },
+      { answerText: "Lysozyme", isCorrect: false },
+      { answerText: "Oxidoreductase", isCorrect: true },
+    ],
+    isAnswered: false,
+    answer: "Oxidoreductase",
+    answerIndex: 3,
+  },
+  {
+    questionText:
+      "Which amino acid is most likely to be found in the active site of an enzyme catalyzing acid-base reactions?",
+    answerOptions: [
+      { answerText: "Glycine", isCorrect: false },
+      { answerText: "Histidine", isCorrect: true },
+      { answerText: "Proline", isCorrect: false },
+      { answerText: "Methionine", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Histidine",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "In the lac operon, what happens when both glucose and lactose are present in high concentrations?",
+    answerOptions: [
+      { answerText: "The lac operon is fully activated", isCorrect: false },
+      {
+        answerText: "The lac operon is repressed due to catabolite repression",
+        isCorrect: true,
+      },
+      {
+        answerText: "Transcription occurs at a constant low level",
+        isCorrect: false,
+      },
+      {
+        answerText: "Beta-galactosidase production is increased",
+        isCorrect: false,
+      },
+    ],
+    isAnswered: false,
+    answer: "The lac operon is repressed due to catabolite repression",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which physical principle explains how enzymes lower the activation energy of biochemical reactions?",
+    answerOptions: [
+      { answerText: "Le Chatelier’s principle", isCorrect: false },
+      { answerText: "Transition state stabilization", isCorrect: true },
+      { answerText: "Pauli exclusion principle", isCorrect: false },
+      { answerText: "Heisenberg uncertainty principle", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Transition state stabilization",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which of the following elements is most abundant in the Earth's crust and also plays a crucial role in ATP hydrolysis?",
+    answerOptions: [
+      { answerText: "Calcium", isCorrect: false },
+      { answerText: "Magnesium", isCorrect: true },
+      { answerText: "Iron", isCorrect: false },
+      { answerText: "Potassium", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Magnesium",
+    answerIndex: 1,
+  },
+  {
+    questionText:
       "Which enzyme is responsible for unwinding the DNA helix during replication?",
     answerOptions: [
       { answerText: "DNA polymerase", isCorrect: false },
@@ -24,6 +175,9 @@ const questions = [
       { answerText: "Ligase", isCorrect: false },
       { answerText: "Topoisomerase", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Helicase",
+    answerIndex: 1,
   },
   {
     questionText:
@@ -34,6 +188,9 @@ const questions = [
       { answerText: "Nucleolus", isCorrect: true },
       { answerText: "Rough Endoplasmic Reticulum", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Nucleolus",
+    answerIndex: 2,
   },
   {
     questionText:
@@ -44,6 +201,9 @@ const questions = [
       { answerText: "Electron transport chain", isCorrect: true },
       { answerText: "Fermentation", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Electron transport chain",
+    answerIndex: 2,
   },
   {
     questionText: "What is the primary function of the myelin sheath?",
@@ -53,6 +213,9 @@ const questions = [
       { answerText: "Increase the speed of nerve impulses", isCorrect: true },
       { answerText: "Produce neurotransmitters", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Increase the speed of nerve impulses",
+    answerIndex: 2,
   },
   {
     questionText:
@@ -63,6 +226,9 @@ const questions = [
       { answerText: "Calcium storage", isCorrect: false },
       { answerText: "Protein synthesis", isCorrect: true },
     ],
+    isAnswered: false,
+    answer: "Protein synthesis",
+    answerIndex: 3,
   },
   {
     questionText:
@@ -73,6 +239,9 @@ const questions = [
       { answerText: "Oxygen", isCorrect: true },
       { answerText: "ATP", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Oxygen",
+    answerIndex: 2,
   },
   {
     questionText: "Which part of the brain regulates balance and coordination?",
@@ -82,172 +251,9 @@ const questions = [
       { answerText: "Medulla oblongata", isCorrect: false },
       { answerText: "Thalamus", isCorrect: false },
     ],
-  },
-  {
-    questionText: "What is the primary function of tRNA in protein synthesis?",
-    answerOptions: [
-      { answerText: "Transcribes DNA into mRNA", isCorrect: false },
-      { answerText: "Transports amino acids to ribosomes", isCorrect: true },
-      { answerText: "Catalyzes peptide bond formation", isCorrect: false },
-      { answerText: "Regulates translation", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which phase of mitosis is characterized by chromosome alignment at the cell equator?",
-    answerOptions: [
-      { answerText: "Prophase", isCorrect: false },
-      { answerText: "Metaphase", isCorrect: true },
-      { answerText: "Anaphase", isCorrect: false },
-      { answerText: "Telophase", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which part of the kidney is responsible for filtration of blood?",
-    answerOptions: [
-      { answerText: "Loop of Henle", isCorrect: false },
-      { answerText: "Collecting duct", isCorrect: false },
-      { answerText: "Glomerulus", isCorrect: true },
-      { answerText: "Distal tubule", isCorrect: false },
-    ],
-  },
-  {
-    questionText: "What type of bond holds the two strands of DNA together?",
-    answerOptions: [
-      { answerText: "Ionic bond", isCorrect: false },
-      { answerText: "Covalent bond", isCorrect: false },
-      { answerText: "Hydrogen bond", isCorrect: true },
-      { answerText: "Peptide bond", isCorrect: false },
-    ],
-  },
-  {
-    questionText: "Which of the following is an example of a prion disease?",
-    answerOptions: [
-      { answerText: "Tuberculosis", isCorrect: false },
-      { answerText: "Creutzfeldt-Jakob disease", isCorrect: true },
-      { answerText: "Influenza", isCorrect: false },
-      { answerText: "Hepatitis B", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which of the following hormones is secreted by the anterior pituitary?",
-    answerOptions: [
-      { answerText: "Cortisol", isCorrect: false },
-      { answerText: "Growth hormone", isCorrect: true },
-      { answerText: "Insulin", isCorrect: false },
-      { answerText: "Glucagon", isCorrect: false },
-    ],
-  },
-  {
-    questionText: "What is the function of the enzyme telomerase?",
-    answerOptions: [
-      { answerText: "Repairs mismatched DNA", isCorrect: false },
-      { answerText: "Elongates telomeres in dividing cells", isCorrect: true },
-      { answerText: "Prevents mRNA degradation", isCorrect: false },
-      { answerText: "Synthesizes ribosomal RNA", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which of the following neurotransmitters is primarily inhibitory in the central nervous system?",
-    answerOptions: [
-      { answerText: "Glutamate", isCorrect: false },
-      { answerText: "Dopamine", isCorrect: false },
-      { answerText: "GABA", isCorrect: true },
-      { answerText: "Acetylcholine", isCorrect: false },
-    ],
-  },
-  {
-    questionText: "Which organ is responsible for producing bile?",
-    answerOptions: [
-      { answerText: "Pancreas", isCorrect: false },
-      { answerText: "Liver", isCorrect: true },
-      { answerText: "Gallbladder", isCorrect: false },
-      { answerText: "Small intestine", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which of the following is NOT a component of the innate immune system?",
-    answerOptions: [
-      { answerText: "Natural killer cells", isCorrect: false },
-      { answerText: "T cells", isCorrect: true },
-      { answerText: "Macrophages", isCorrect: false },
-      { answerText: "Complement proteins", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which of the following is responsible for the dark reactions in photosynthesis?",
-    answerOptions: [
-      { answerText: "Photosystem I", isCorrect: false },
-      { answerText: "Calvin cycle", isCorrect: true },
-      { answerText: "Electron transport chain", isCorrect: false },
-      { answerText: "Cyclic phosphorylation", isCorrect: false },
-    ],
-  },
-  {
-    questionText: "Which blood vessel carries oxygenated blood to the heart?",
-    answerOptions: [
-      { answerText: "Pulmonary vein", isCorrect: true },
-      { answerText: "Pulmonary artery", isCorrect: false },
-      { answerText: "Superior vena cava", isCorrect: false },
-      { answerText: "Aorta", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which structure in the nephron is primarily responsible for reabsorption?",
-    answerOptions: [
-      { answerText: "Glomerulus", isCorrect: false },
-      { answerText: "Loop of Henle", isCorrect: false },
-      { answerText: "Proximal convoluted tubule", isCorrect: true },
-      { answerText: "Collecting duct", isCorrect: false },
-    ],
-  },
-  {
-    questionText: "Which of the following is a function of the hypothalamus?",
-    answerOptions: [
-      { answerText: "Regulating body temperature", isCorrect: true },
-      { answerText: "Controlling voluntary movement", isCorrect: false },
-      { answerText: "Producing cerebrospinal fluid", isCorrect: false },
-      { answerText: "Initiating reflex actions", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which organelle contains hydrolytic enzymes for intracellular digestion?",
-    answerOptions: [
-      { answerText: "Golgi apparatus", isCorrect: false },
-      { answerText: "Lysosome", isCorrect: true },
-      { answerText: "Peroxisome", isCorrect: false },
-      { answerText: "Smooth endoplasmic reticulum", isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Which of the following is NOT a characteristic of prokaryotic cells?",
-    answerOptions: [
-      { answerText: "Presence of a nucleus", isCorrect: true },
-      { answerText: "Lack of membrane-bound organelles", isCorrect: false },
-      { answerText: "Circular DNA", isCorrect: false },
-      {
-        answerText: "Binary fission as a method of reproduction",
-        isCorrect: false,
-      },
-    ],
-  },
-  {
-    questionText:
-      "Which of the following macromolecules serves as the primary energy source for cells?",
-    answerOptions: [
-      { answerText: "Proteins", isCorrect: false },
-      { answerText: "Lipids", isCorrect: false },
-      { answerText: "Carbohydrates", isCorrect: true },
-      { answerText: "Nucleic acids", isCorrect: false },
-    ],
+    isAnswered: false,
+    answer: "Cerebellum",
+    answerIndex: 1,
   },
   {
     questionText: "Which type of mutation results in a premature stop codon?",
@@ -257,6 +263,9 @@ const questions = [
       { answerText: "Silent mutation", isCorrect: false },
       { answerText: "Frameshift mutation", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Nonsense mutation",
+    answerIndex: 1,
   },
   {
     questionText: "Which hormone stimulates red blood cell production?",
@@ -266,6 +275,9 @@ const questions = [
       { answerText: "Aldosterone", isCorrect: false },
       { answerText: "Thyroxine", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Erythropoietin",
+    answerIndex: 0,
   },
   {
     questionText: "What is the main function of surfactant in the lungs?",
@@ -275,6 +287,9 @@ const questions = [
       { answerText: "Remove carbon dioxide", isCorrect: false },
       { answerText: "Increase mucus production", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Reduce surface tension in alveoli",
+    answerIndex: 1,
   },
   {
     questionText:
@@ -285,26 +300,211 @@ const questions = [
       { answerText: "Macrophages", isCorrect: false },
       { answerText: "Natural killer cells", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "B cells",
+    answerIndex: 1,
   },
   {
     questionText:
-      "Which of the following is a characteristic of a k-selected species?",
+      "Which part of the nephron is primarily responsible for filtration?",
     answerOptions: [
-      { answerText: "High reproductive rate", isCorrect: false },
-      { answerText: "Little parental care", isCorrect: false },
-      { answerText: "Long lifespan and few offspring", isCorrect: true },
-      { answerText: "Rapid population growth", isCorrect: false },
+      { answerText: "Loop of Henle", isCorrect: false },
+      { answerText: "Glomerulus", isCorrect: true },
+      { answerText: "Collecting duct", isCorrect: false },
+      { answerText: "Distal tubule", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Glomerulus",
+    answerIndex: 1,
   },
   {
     questionText:
-      "Which of the following cellular structures is responsible for the synthesis of ATP in prokaryotic cells?",
+      "Which of the following enzymes is responsible for transcribing DNA into RNA?",
+    answerOptions: [
+      { answerText: "DNA polymerase", isCorrect: false },
+      { answerText: "RNA polymerase", isCorrect: true },
+      { answerText: "Helicase", isCorrect: false },
+      { answerText: "Ligase", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "RNA polymerase",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "What is the main function of the sarcoplasmic reticulum in muscle cells?",
+    answerOptions: [
+      { answerText: "Produce ATP", isCorrect: false },
+      { answerText: "Store and release calcium ions", isCorrect: true },
+      { answerText: "Transport oxygen", isCorrect: false },
+      { answerText: "Synthesize proteins", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Store and release calcium ions",
+    answerIndex: 1,
+  },
+  {
+    questionText: "Which phase of the cell cycle includes DNA replication?",
+    answerOptions: [
+      { answerText: "G1 phase", isCorrect: false },
+      { answerText: "S phase", isCorrect: true },
+      { answerText: "G2 phase", isCorrect: false },
+      { answerText: "M phase", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "S phase",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which neurotransmitter is primarily responsible for muscle contraction?",
+    answerOptions: [
+      { answerText: "Dopamine", isCorrect: false },
+      { answerText: "Serotonin", isCorrect: false },
+      { answerText: "Acetylcholine", isCorrect: true },
+      { answerText: "GABA", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Acetylcholine",
+    answerIndex: 2,
+  },
+  {
+    questionText: "What is the function of telomerase?",
+    answerOptions: [
+      { answerText: "Unwind DNA for replication", isCorrect: false },
+      { answerText: "Prevent chromosome shortening", isCorrect: true },
+      { answerText: "Repair damaged DNA", isCorrect: false },
+      { answerText: "Facilitate protein synthesis", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Prevent chromosome shortening",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which structure in the human brain is responsible for regulating circadian rhythms?",
+    answerOptions: [
+      { answerText: "Hypothalamus", isCorrect: true },
+      { answerText: "Amygdala", isCorrect: false },
+      { answerText: "Cerebellum", isCorrect: false },
+      { answerText: "Pons", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Hypothalamus",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "Which of the following is a function of the liver in glucose metabolism?",
+    answerOptions: [
+      { answerText: "Converting glucose to glycogen", isCorrect: true },
+      { answerText: "Producing insulin", isCorrect: false },
+      { answerText: "Breaking down glycogen to amino acids", isCorrect: false },
+      { answerText: "Absorbing glucose from the intestines", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Converting glucose to glycogen",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "Which molecule is directly responsible for transferring amino acids to the ribosome during translation?",
+    answerOptions: [
+      { answerText: "mRNA", isCorrect: false },
+      { answerText: "rRNA", isCorrect: false },
+      { answerText: "tRNA", isCorrect: true },
+      { answerText: "DNA", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "tRNA",
+    answerIndex: 2,
+  },
+  {
+    questionText:
+      "Which immune cells are primarily responsible for the rapid response in the innate immune system?",
+    answerOptions: [
+      { answerText: "B cells", isCorrect: false },
+      { answerText: "T cells", isCorrect: false },
+      { answerText: "Neutrophils", isCorrect: true },
+      { answerText: "Plasma cells", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Neutrophils",
+    answerIndex: 2,
+  },
+  {
+    questionText:
+      "What type of joint is found between the vertebrae of the spine?",
+    answerOptions: [
+      { answerText: "Fibrous joint", isCorrect: false },
+      { answerText: "Cartilaginous joint", isCorrect: true },
+      { answerText: "Synovial joint", isCorrect: false },
+      { answerText: "Hinge joint", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Cartilaginous joint",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which cellular organelle is responsible for breaking down waste materials and cellular debris?",
     answerOptions: [
       { answerText: "Mitochondria", isCorrect: false },
+      { answerText: "Lysosomes", isCorrect: true },
+      { answerText: "Peroxisomes", isCorrect: false },
       { answerText: "Ribosomes", isCorrect: false },
-      { answerText: "Plasma membrane", isCorrect: true },
-      { answerText: "Nucleoid", isCorrect: false },
     ],
+    isAnswered: false,
+    answer: "Lysosomes",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which of the following best describes an operon in bacterial gene regulation?",
+    answerOptions: [
+      { answerText: "A cluster of genes regulated together", isCorrect: true },
+      {
+        answerText: "A single gene coding for multiple proteins",
+        isCorrect: false,
+      },
+      {
+        answerText: "A sequence that enhances transcription",
+        isCorrect: false,
+      },
+      {
+        answerText: "A regulatory protein that binds to DNA",
+        isCorrect: false,
+      },
+    ],
+    isAnswered: false,
+    answer: "A cluster of genes regulated together",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "Which enzyme is responsible for generating ATP in the mitochondria?",
+    answerOptions: [
+      { answerText: "ATP synthase", isCorrect: true },
+      { answerText: "Pyruvate kinase", isCorrect: false },
+      { answerText: "Hexokinase", isCorrect: false },
+      { answerText: "Glucose-6-phosphatase", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "ATP synthase",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "Which protein complex is responsible for recognizing and degrading misfolded proteins in cells?",
+    answerOptions: [
+      { answerText: "Lysosome", isCorrect: false },
+      { answerText: "Proteasome", isCorrect: true },
+      { answerText: "Ribosome", isCorrect: false },
+      { answerText: "Peroxisome", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Proteasome",
+    answerIndex: 1,
   },
 ];
 
@@ -312,14 +512,37 @@ const Quizlet = () => {
   const { subject } = useParams();
   const [questionNumber, setQuestionNumber] = useState(0);
   const [answered, setAnswered] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(null);
   const [score, setScore] = useState(0);
+  const [quizQuestions, setQuizQuestions] = useState(questions);
+  const [selectedAnswers, setSelectedAnswers] = useState<
+    Record<number, number | null>
+  >({});
+
+  const questionNav = (index: number) => {
+    setAnswered(false);
+    setQuestionNumber(index);
+  };
 
   const handleSelectedAnswer = (index: any, isCorrect: boolean) => {
-    setAnswered(true);
-    setSelectedIndex(index);
-    if (isCorrect) {
-      setScore(score + 1);
+    if (!answered) {
+      setSelectedAnswers((prev) => ({
+        ...prev,
+        [questionNumber]: index, // Store selected index for the current question
+      }));
+      setAnswered(true);
+
+      // if (isCorrect) {
+      //   setScore((prevScore) => prevScore + 1);
+      // }
+
+      // Update isAnswered for the current question
+      setQuizQuestions((prevQuestions) =>
+        prevQuestions.map((question, qIndex) =>
+          qIndex === questionNumber
+            ? { ...question, isAnswered: true }
+            : question
+        )
+      );
     }
   };
 
@@ -329,8 +552,16 @@ const Quizlet = () => {
   };
 
   const handleFinish = () => {
-    console.log(score);
+    questions.map((question, ind) => {
+      if (question.answerIndex === selectedAnswers[ind]) {
+        setScore((prevScore) => prevScore + 1);
+      }
+    });
   };
+
+  const handleDone = () => {
+    setScore(0)
+  }
 
   return (
     <div className="p-4">
@@ -341,23 +572,25 @@ const Quizlet = () => {
             {subject}
           </h1>
           <Card className="p-4 my-4">
-            <h1>{questions[questionNumber].questionText}</h1>
+            <h1>{quizQuestions[questionNumber].questionText}</h1>
             <div className="flex flex-col">
-              {questions[questionNumber].answerOptions.map((option, index) => (
-                <Button
-                  className={`${
-                    answered
-                      ? selectedIndex === index
+              {quizQuestions[questionNumber].answerOptions.map(
+                (option, index) => (
+                  <Button
+                    className={`${
+                      selectedAnswers[questionNumber] === index
                         ? "bg-green-500 hover:bg-green-500 text-white"
                         : "bg-muted text-black"
-                      : "bg-muted text-black"
-                  } my-1 cursor-pointer border-b-[1px]  hover:text-white transition-all duration-75`}
-                  key={index}
-                  onClick={() => handleSelectedAnswer(index, option.isCorrect)}
-                >
-                  {option.answerText}
-                </Button>
-              ))}
+                    } my-1 cursor-pointer border-b-[1px]  hover:text-white transition-all duration-75`}
+                    key={index}
+                    onClick={() =>
+                      handleSelectedAnswer(index, option.isCorrect)
+                    }
+                  >
+                    {option.answerText}
+                  </Button>
+                )
+              )}
             </div>
           </Card>
           <div className="flex justify-between items-center">
@@ -369,9 +602,9 @@ const Quizlet = () => {
               Previous
             </Button>
             <h1>
-              Question {questionNumber + 1} of {questions.length}
+              Question {questionNumber + 1} of {quizQuestions.length}
             </h1>
-            {questionNumber < questions.length - 1 ? (
+            {questionNumber < quizQuestions.length - 1 ? (
               <Button
                 onClick={() => handleNext()}
                 disabled={questionNumber >= questions.length - 1}
@@ -390,17 +623,22 @@ const Quizlet = () => {
                 </AlertDialogTrigger>
                 <AlertDialogContent className="w-full flex flex-col justify-center items-center">
                   <AlertDialogHeader className="w-full flex justify-center items-center">
-                    <AlertDialogTitle>
-                      Score
-                    </AlertDialogTitle>
+                    <AlertDialogTitle>Score</AlertDialogTitle>
                     <AlertDialogDescription className="w-full flex justify-center items-center">
                       You can do better
                     </AlertDialogDescription>
                   </AlertDialogHeader>
-                    You scored {score} out of {questions.length}
+                  <p>
+                    {" "}
+                    You scored {score} out of {quizQuestions.length}
+                  </p>
                   <AlertDialogFooter>
-                    <AlertDialogCancel onClick={() => setScore(0)}>Close</AlertDialogCancel>
-                    <AlertDialogAction onClick={() => setScore(0)}>Done</AlertDialogAction>
+                    <AlertDialogCancel onClick={() => handleDone()}>
+                      Close
+                    </AlertDialogCancel>
+                    <AlertDialogAction onClick={() => handleDone()}>
+                      Done
+                    </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
               </AlertDialog>
@@ -414,10 +652,12 @@ const Quizlet = () => {
               Questions
             </h1>
             <div className="grid grid-cols-6 w-fit gap-2">
-              {questions.map((q, i) => (
+              {quizQuestions.map((question, i) => (
                 <Card
-                  className="hover:bg-muted flex items-center justify-center h-15 w-17 cursor-pointer"
-                  onClick={() => setQuestionNumber(i)}
+                  className={`${
+                    question.isAnswered && "bg-green-400 text-white"
+                  } hover:bg-muted flex items-center justify-center h-15 w-17 cursor-pointer`}
+                  onClick={() => questionNav(i)}
                   key={i}
                 >
                   {i + 1}
