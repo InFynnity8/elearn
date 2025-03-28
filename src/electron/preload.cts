@@ -1,17 +1,23 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
+  // Videos
   getVideos: () => ipcRenderer.invoke("get-videos"),
-  getVideoMetadata: (path: string) => ipcRenderer.invoke("get-video-metadata", path),
-  saveText: (data: {filename: string, text: string}) => ipcRenderer.invoke("save-text", data),
+  openVideoFolder: () => ipcRenderer.invoke("open-video-folder"),
+
+  // PDFs
+  getPdfs: () => ipcRenderer.invoke("get-pdfs"),
+  openPdfFolder: () => ipcRenderer.invoke("open-pdf-folder"),
+
+  // Notes
+  saveText: (data: { filename: string; text: string }) => ipcRenderer.invoke("save-text", data),
   loadTextFiles: () => ipcRenderer.invoke("load-text-files"),
   readTextFile: (filePath: string) => ipcRenderer.invoke("read-text-file", filePath),
-  getPdfs: () => ipcRenderer.invoke("get-pdfs"),
+  openNotesFolder: () => ipcRenderer.invoke("open-notes-folder"),
 
-  authenticateUser: (username:string, password:string) => ipcRenderer.invoke('authenticateUser', username, password),
-  setAuthenticatedUser: (username:string) => ipcRenderer.invoke('setAuthenticatedUser', username),
-  getAuthenticatedUser: () => ipcRenderer.invoke('getAuthenticatedUser'),
-  logoutUser: () => ipcRenderer.invoke('logoutUser'),
-
-  openVideoFolder: () => ipcRenderer.invoke("open-video-folder"),
+  // Authentication
+  authenticateUser: (username: string, password: string) => ipcRenderer.invoke("authenticateUser", username, password),
+  setAuthenticatedUser: (username: string) => ipcRenderer.invoke("setAuthenticatedUser", username),
+  getAuthenticatedUser: () => ipcRenderer.invoke("getAuthenticatedUser"),
+  logoutUser: () => ipcRenderer.invoke("logoutUser"),
 });

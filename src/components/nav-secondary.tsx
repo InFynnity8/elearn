@@ -16,7 +16,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 
@@ -37,6 +37,15 @@ export function NavSecondary({ ...props }) {
       toast.success("Video folder opened successfully");
     } catch (error) {
       toast.error("Failed to open video folder");
+    }
+  };
+
+  const handleAddBook = async () => {
+    try {
+      await window.electronAPI.openPdfFolder();
+      toast.success("PDF folder opened successfully");
+    } catch (error) {
+      toast.error("Failed to open PDF folder");
     }
   };
 
@@ -67,7 +76,11 @@ export function NavSecondary({ ...props }) {
                   Add Video
                 </Button>
               </DropdownMenuItem>
-              <DropdownMenuItem>something is here</DropdownMenuItem>
+              <DropdownMenuItem>
+              <Button onClick={handleAddBook}>
+                  Add Book
+                </Button>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>something is here</DropdownMenuItem>
               <DropdownMenuItem>something is here</DropdownMenuItem>

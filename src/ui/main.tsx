@@ -10,17 +10,25 @@ import { Toaster } from "../components/ui/sonner";
 declare global {
   interface Window {
     electronAPI: {
-      readTextFile: (filePath: string) => Promise<{ success: boolean; text?: string; error?: string }>;
-      loadTextFiles: () => Promise<{ name: string; path: string }[]>;
+      // Videos
       getVideos: () => Promise<{ name: string; path: string }[]>;
-      getVideoMetadata: (videoPath: string) => Promise<{ duration: number; title: string }>;
-      saveText: (content: { filename: string; text: string }) => Promise<string | null>;
+      openVideoFolder: () => Promise<void>;
+
+      // PDFs
       getPdfs: () => Promise<{ name: string; path: string }[]>;
+      openPdfFolder: () => Promise<void>;
+
+      // Notes
+      saveText: (data: { filename: string; text: string }) => Promise<string | null>;
+      loadTextFiles: () => Promise<{ name: string; path: string }[]>;
+      readTextFile: (filePath: string) => Promise<{ success: boolean; text?: string; error?: string }>;
+      openNotesFolder: () => Promise<void>;
+
+      // Authentication
       authenticateUser: (username: string, password: string) => Promise<{ success: boolean; message: string }>;
       setAuthenticatedUser: (username: string) => Promise<void>;
       getAuthenticatedUser: () => Promise<string | null>;
       logoutUser: () => Promise<{ success: boolean; message: string }>;
-      openVideoFolder: () => Promise<void>;
     };
   }
 }
