@@ -1,14 +1,34 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, shell } from "electron";
 import path from "path";
 import { isDev } from "./util.js";
 import fs from "fs";
 import { getNotePath, getPreloadPath, getVideoPath, getPdfPath } from "./pathResolver.js";
 // import ffmpeg from "fluent-ffmpeg";
+// import bcrypt from 'bcryptjs';
+import { authenticateUser } from "./auth.js";
+
+
+// const password = 'admin';  // Replace with actual password
+// bcrypt.hash(password, 10, (err, hash) => {
+//     if (err) console.error(err);
+//     else console.log('Hashed Password:', hash);
+// }); 
+
+function ensureDirectoriesExist() {
+  const videoFolder = path.join(getVideoPath(), "videos");
+  const pdfFolder = path.join(getPdfPath(), "books");
+
+  [videoFolder, pdfFolder].forEach((folder) => {
+    if (!fs.existsSync(folder)) {
+      fs.mkdirSync(folder, { recursive: true });
+      console.log(`Created directory: ${folder}`);
+    }
+  });
+}
 
 app.on("ready", () => {
   // create a new window
-  console.log(path.join(app.getAppPath(), "/dist-react/index.html"))
-  console.log("ready")
+  ensureDirectoriesExist();
   const mainWindow = new BrowserWindow({
     minWidth: 800,
     height: 600,
@@ -29,16 +49,20 @@ app.on("ready", () => {
 
   // API requests
 
-  // fetch videos
   ipcMain.handle("get-videos", async () => {
-    const videoFolder = path.join(getVideoPath(), "videos");
-    const files = fs
-      .readdirSync(videoFolder)
-      .filter((file) => file.endsWith(".mp4"));
-    return files.map((file) => ({
-      name: file,
-      path: `file://${path.join(videoFolder, file)}`, // Create full path
-    }));
+    try {
+      const videoFolder = path.join(getVideoPath(), "videos");
+  
+      const files = fs.readdirSync(videoFolder).filter((file) => file.endsWith(".mp4"));
+  
+      return files.map((file) => ({
+        name: file,
+        path: `file://${path.join(videoFolder, file)}`,
+      }));
+    } catch (error) {
+      console.error("Error fetching videos:", error);
+      return [];
+    }
   });
 
   // get video metadata
@@ -97,15 +121,11 @@ app.on("ready", () => {
   });
 });
 
-// Define the directory where PDFs are stored
-const pdfDirectory = path.join(getPdfPath(), "books");
 
 // Function to get all PDFs
 ipcMain.handle("get-pdfs", async () => {
   try {
-    if (!fs.existsSync(pdfDirectory)) {
-      fs.mkdirSync(pdfDirectory, { recursive: true });
-    }
+    const pdfDirectory = path.join(getPdfPath(), "books");
 
     const files = fs.readdirSync(pdfDirectory).filter((file) => file.endsWith(".pdf"));
     return files.map((file) => ({
@@ -117,3 +137,32 @@ ipcMain.handle("get-pdfs", async () => {
     return [];
   }
 });
+
+
+// Handle authentication via IPC
+ipcMain.handle('authenticateUser', async (event, username:string, password:string) => {
+  return await authenticateUser(username, password);
+});
+
+// Handle session storage in IPC
+let authenticatedUser: string | null = null;
+
+ipcMain.handle('setAuthenticatedUser', (event, username) => {
+  authenticatedUser = username;
+});
+
+ipcMain.handle('getAuthenticatedUser', () => {
+  return authenticatedUser;
+});
+
+ipcMain.handle('logoutUser', () => {
+  authenticatedUser = null;
+});
+
+
+
+ipcMain.handle("open-video-folder", async () => {
+  const videoFolder = getVideoPath();
+  shell.openPath(videoFolder); // Opens the folder in the OS file explorer
+});
+

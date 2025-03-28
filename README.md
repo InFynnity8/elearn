@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+# eLearn 📚🚀  
+**An Advanced E-Learning Application Built with Electron & React**  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 Introduction  
+eLearn is a powerful and interactive desktop application designed to enhance the learning experience for students and teachers. Built with **Electron** and **React**, it provides a seamless and feature-rich platform for managing courses, quizzes, textbooks, and study materials in an intuitive interface.
 
-Currently, two official plugins are available:
+## ✨ Features  
+✅ **User Authentication** – Secure signup and login system.  
+✅ **Dashboard** – Central hub for accessing lessons, quizzes, and study materials.  
+✅ **Lessons & Video Player** – Interactive lessons with integrated media support.  
+✅ **Quizzes & Assessments** – Engage users with dynamic quizzes.  
+✅ **Textbook Reader** – Read and manage textbooks directly in the app.  
+✅ **Notebook** – Digital notebook for taking study notes.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Technologies Used  
+- **Electron** – Desktop application framework  
+- **React** – Frontend library for UI development  
+- **Redux** – State management  
+- **TypeScript** – Strongly typed JavaScript  
+- **Tailwind CSS** – Modern styling  
+- **Shadcn UI** – Elegant UI components  
 
-## Expanding the ESLint configuration
+## 🚀 Installation (Development)  
+Follow these steps to set up eLearn on your system:  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/eLearn.git
+cd eLearn
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Install dependencies
+npm install
+
+# Start the Electron app
+npm run dev
 ```
+## 📥 Download  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+You can download the latest production version of **eLearn** from the [Releases Page](https://github.com/yourusername/eLearn/releases).  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Available Platforms:  
+🔹 **Windows (.exe)**  
+🔹 **macOS (.dmg)**  
+🔹 **Linux (.AppImage / .deb)**  
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🏗️ Future Enhancements  
+
+- ✅ **Dark Mode** for improved accessibility  
+- ✅ **AI-Powered Study Recommendations**  
+- ✅ **Offline Mode** for studying without internet access  

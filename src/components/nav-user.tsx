@@ -1,9 +1,5 @@
 import {
   BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
   Sparkles,
 } from "lucide-react";
 
@@ -23,7 +19,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { Link } from "react-router-dom";
 
 export function NavUser({
   user,

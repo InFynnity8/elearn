@@ -1,25 +1,24 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   BrainCircuit,
-  GraduationCap ,
+  GraduationCap,
   BrainCog,
   BookText,
   Home,
-  NotebookPen,
-  LogOut,
-  Settings,
-} from "lucide-react"
+  NotebookPen
+} from "lucide-react";
 
-import { NavMain } from "./nav-main"
-import { NavSecondary } from "./nav-secondary"
+import { NavMain } from "./nav-main";
+import { NavSecondary } from "./nav-secondary";
 import {
   Sidebar,
   SidebarContent,
   SidebarHeader,
+  SidebarMenuButton,
   SidebarRail,
-} from "./ui/sidebar"
+} from "./ui/sidebar";
 // import { useSelector } from "react-redux"
 // import { ReactState } from "../ui/state/store"
 // import { useState } from "react"
@@ -73,27 +72,27 @@ import {
 export function SidebarLeft({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-// const courses = useSelector( (state: ReactState) => state.courses)
-// const [activeCourse, setActiveCourse] = useState("")
+  // const courses = useSelector( (state: ReactState) => state.courses)
+  // const [activeCourse, setActiveCourse] = useState("")
 
-// for(let x in courses) {
-//   if (courses[x].isActive === true) {
-//     setActiveCourse(courses[x].name)
-//   }
-// }
+  // for(let x in courses) {
+  //   if (courses[x].isActive === true) {
+  //     setActiveCourse(courses[x].name)
+  //   }
+  // }
 
   const data = {
-    navMain: [ 
+    navMain: [
       {
         title: "Dashboard",
-        url: "/General Science",
+        url: "/",
         icon: Home,
         isActive: true,
       },
       {
         title: "Lessons",
         url: "/lessons",
-        icon: GraduationCap ,
+        icon: GraduationCap,
       },
       {
         title: "TextBooks",
@@ -113,34 +112,25 @@ export function SidebarLeft({
         badge: "10",
       },
     ],
-    navSecondary: [
-      {
-        title: "Settings",
-        url: "/settings",
-        icon: Settings,
-      },
-      {
-        title: "Logout",
-        url: "/signup",
-        icon: LogOut,
-      },
-    ],
-  }
-  
+  };
 
   return (
     <Sidebar collapsible="icon" className="border-r-0" {...props}>
       <SidebarHeader>
-        <div className="w-full flex items-center justify-center mb-6 mt-2 pointer-events-none pr-4">
-          <BrainCog className="size-8 text-blue-400" />
-          <p className="text-2xl font-bold text-blue-400">eClassroom</p>
-        </div>
+        <SidebarMenuButton asChild className="pointer-events-none mb-8">  
+          <div className="flex items-center w-full">
+            <BrainCog className="size-8 text-blue-400" />
+            <div className="font-bold text-blue-400 w-full ml-5 text-2xl">
+              eClassroom
+            </div>
+          </div>
+        </SidebarMenuButton>
         <NavMain items={data.navMain} />
       </SidebarHeader>
       <SidebarContent>
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavSecondary className="mt-auto" />
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

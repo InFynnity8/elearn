@@ -1,43 +1,90 @@
-import React from "react"
-import { type LucideIcon } from "lucide-react"
+import { LogOut, Settings } from "lucide-react";
 
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
-  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+  useSidebar,
+} from "@/components/ui/sidebar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { Button } from "./ui/button";
 
-export function NavSecondary({
-  items,
-  ...props
-}: {
-  items: {
-    title: string
-    url: string
-    icon: LucideIcon
-    badge?: React.ReactNode
-  }[]
-} & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
+export function NavSecondary({ ...props }) {
+  const { isMobile } = useSidebar();
+  const navigate = useNavigate();
+
+  const handleLogout = () => { 
+    window.electronAPI.logoutUser(); 
+    localStorage.removeItem("user") 
+    toast.success("Logged Out Successfully") 
+    navigate("/signup");
+  };
+
+  const handleAddVideo = async () => {
+    try {
+      await window.electronAPI.openVideoFolder();
+      toast.success("Video folder opened successfully");
+    } catch (error) {
+      toast.error("Failed to open video folder");
+    }
+  };
+
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>
         <SidebarMenu>
-          {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild className="cursor-pointer">
               <SidebarMenuButton asChild>
-                <a href={item.url}>
-                  <item.icon className={`${item.title === "Logout"? "text-red-500": ""}`}/>
-                  <span className={`${item.title === "Logout"? "text-red-500": ""}`}>{item.title}</span>
-                </a>
+                <div className="">
+                  <Settings />
+                  <span>Settings</span>
+                </div>
               </SidebarMenuButton>
-              {item.badge && <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>}
-            </SidebarMenuItem>
-          ))}
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg p-2"
+              side={isMobile ? "bottom" : "right"}
+              align="start"
+              sideOffset={4}
+            >
+              <DropdownMenuLabel className="text-blue-400 text-[18px]">
+                Settings
+              </DropdownMenuLabel>
+              <DropdownMenuItem>
+                <Button onClick={handleAddVideo}>
+                  Add Video
+                </Button>
+              </DropdownMenuItem>
+              <DropdownMenuItem>something is here</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>something is here</DropdownMenuItem>
+              <DropdownMenuItem>something is here</DropdownMenuItem>
+              <DropdownMenuItem>something is here</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild onClick={handleLogout}>
+              <div className="cursor-pointer w-full h-full">
+                <LogOut className="text-red-500" />
+                <span className="text-red-500">Logout</span>
+              </div>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
-  )
+  );
 }

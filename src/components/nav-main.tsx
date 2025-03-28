@@ -22,6 +22,7 @@ export function NavMain({
 
   const location = useLocation();
   console.log(location.pathname);
+  
 
   return (
     <SidebarMenu>

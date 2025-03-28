@@ -15,17 +15,24 @@ import { Input } from "./ui/input";
 import biologyCover from "../ui/assets/bookcover/biology_textbook.png"
 import chemistryCover from "../ui/assets/bookcover/chemistry.jpg"
 import mathCover from "../ui/assets/bookcover/maths.png.jpg"
-import physicsCover from "../ui/assets/bookcover/physics1.jpg"
-import physics2Cover from "../ui/assets/bookcover/physics.jpg"
+import physicsCover from "../ui/assets/bookcover/physics1.jpg" 
+// import coreMaths from "../../assets/bookcover/coremaths.png";
+// import interScience from "../../assets/bookcover/interscience-removebg-preview.png";
+// import social from "../../assets/bookcover/social.jpg";
+// import english from "../../assets/bookcover/english.jpg";
+import geo from "../ui/assets/bookcover/geog.webp";
+import agric from "../ui/assets/bookcover/Agric.png";
+import ICT from "../ui/assets/bookcover/ICT-removebg-preview.png";
+// import { useParams } from "react-router-dom";
 
 const covers = [
   physicsCover,
-  physics2Cover,
+  geo,
   mathCover,
   chemistryCover,
   biologyCover,
-  physics2Cover,
-  chemistryCover
+  agric,
+  ICT
 ]
 
 
@@ -39,6 +46,7 @@ const PdfList = () => {
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const [isScrollable, setIsScrollable] = useState(false)
   // const {subject} = useParams();
 
   useEffect(() => {
@@ -74,6 +82,9 @@ const PdfList = () => {
                   Next
                 </Button>
               </div>
+              <Button
+                onClick={() => setIsScrollable((prev) => !prev)}
+                className={`hover:text-white ${isScrollable? "text-white bg-blue-400": "text-blue-500 bg-white"}`}>Paginate</Button>
               <div className="w-[100px] flex flex-1 items-center justify-end">
                 Page{" "}
                 <Input
@@ -91,13 +102,16 @@ const PdfList = () => {
               onLoadSuccess={({ numPages }) => setNumPages(numPages)}
               className="w-full flex justify-center items-center flex-col"
             >
-              <Page
-                pageNumber={pageNumber}
-                className="justify-center w-full flex "
-              />
-              {/* {Array.from({ length: numPages }, (_, index) => (
-                <Page key={index} pageNumber={index + 1} />
-              ))} */}
+              {isScrollable ? 
+              Array.from({ length: numPages }, (_, index) => (
+                <Page key={index} pageNumber={index + 1} className="mb-4"/>
+              ))
+               :
+               <Page
+                 pageNumber={pageNumber}
+                 className="justify-center w-full flex "
+               />
+              }
             </Document>
           </div>
         )}

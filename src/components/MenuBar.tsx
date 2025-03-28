@@ -9,17 +9,7 @@ import {
 } from "./ui/alert-dialog";
 import { Input } from "./ui/input";
 
-declare global {
-  interface Window {
-    electronAPI: {
-      readTextFile(filePath: string): unknown;
-      loadTextFiles(): unknown;
-      getVideos(): unknown;
-      getVideoMetadata(videoPath: string): unknown;
-      saveText: (content: {filename:string , text: string}) => void;
-    };
-  }
-}
+
 import { Toggle } from "./ui/toggle";
 import {
   Select,

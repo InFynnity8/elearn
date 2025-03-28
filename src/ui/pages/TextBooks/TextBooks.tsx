@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
 import { Button } from "../../../components/ui/button";
 import {
   Card,
-  CardDescription,
   CardFooter,
-  CardHeader,
 } from "../../../components/ui/card";
 import toy from "../../assets/profile.png";
 import bgcover from "../../assets/elearn.jpg";
@@ -18,12 +15,17 @@ import t7 from "../../assets/elearn.jpg";
 import t8 from "../../assets/thumbnail9.png";
 import t9 from "../../assets/bg2.jpeg";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import biologyCover from "../../assets/bookcover/biology_textbook.png";
 import chemistryCover from "../../assets/bookcover/chemistry.jpg";
 import mathCover from "../../assets/bookcover/maths.png.jpg";
-import physicsCover from "../../assets/bookcover/physics1.jpg";
 import physics2Cover from "../../assets/bookcover/physics.jpg";
+import coreMaths from "../../assets/bookcover/coremaths.png";
+import interScience from "../../assets/bookcover/interscience-removebg-preview.png";
+import social from "../../assets/bookcover/social.jpg";
+import english from "../../assets/bookcover/english.jpg";
+import geo from "../../assets/bookcover/geog.webp";
+import agric from "../../assets/bookcover/Agric.png";
+import ICT from "../../assets/bookcover/ICT-removebg-preview.png";
 
 const eSubjects = [
   {
@@ -49,17 +51,17 @@ const eSubjects = [
   {
     name: "GEOGRAPHY",
     title: "",
-    thumbnail: physicsCover,
+    thumbnail: geo,
   },
   {
     name: "ICT",
     title: "",
-    thumbnail: chemistryCover,
+    thumbnail: ICT,
   },
   {
     name: "AGRICULTURE",
     title: "",
-    thumbnail: mathCover,
+    thumbnail: agric,
   },
 ];
 
@@ -67,22 +69,22 @@ const cSubjects = [
   {
     name: "ENGLISH",
     title: "",
-    thumbnail: mathCover,
+    thumbnail: english,
   },
   {
     name: "SOCIAL STUDIES",
     title: "",
-    thumbnail: chemistryCover,
+    thumbnail: social,
   },
   {
     name: "INTEGRATED SCIENCE",
     title: "",
-    thumbnail: biologyCover,
+    thumbnail: interScience,
   },
   {
     name: "CORE MATHEMATICS",
     title: "",
-    thumbnail: mathCover,
+    thumbnail: coreMaths,
   },
 ];
 

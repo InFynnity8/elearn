@@ -11,6 +11,8 @@ node_modules
 dist
 dist-react
 dist-electron
+videos
+books
 *.local
 
 # Editor directories and files

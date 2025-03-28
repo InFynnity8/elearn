@@ -9,13 +9,10 @@ import { Button } from "../../../components/ui/button";
 import { Link } from "react-router-dom";
 
 const esubs = [
-  "Physics Quiz",
-  "Biology Quiz",
-  "Chemistry Quiz",
-  "E-Mathematics Quiz",
-  "Geography Quiz",
-  "Elective ICT Quiz",
-  "Agriculture Quiz",
+  "physics",
+  "biology",
+  "chemistry",
+  "emathematics"
 ];
 const csubs = [
   "Integrated Science Quiz",

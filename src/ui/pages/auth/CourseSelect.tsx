@@ -11,7 +11,7 @@ import {
 
 import { cn } from "../../../lib/utils";
 import { Button } from "../../../components/ui/button";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "../../../components/ui/card";
 import { ReactState } from "../../state/store.ts";
 
@@ -25,6 +25,7 @@ const iconMap: any = {
 
 const CourseSelect = () => {
   const courses = useSelector((state: ReactState) => state.courses);
+  const navigate = useNavigate();
   //   const [courses, setCourses] = useState([
   //     { name: "General Science", icon: "TestTube2", isActive: false },
   //     { name: "General Arts", icon: "Book", isActive: false },
@@ -41,6 +42,10 @@ const CourseSelect = () => {
     dispatch(activateCourse(selectedIndex));
   };
 
+  const handleFinish = () => {
+    navigate("/");
+  }
+
   return (
     <div className="px-4">
       <div className="flex flex-col gap-6 items-center  w-full h-[100vh] justify-center">
@@ -50,7 +55,7 @@ const CourseSelect = () => {
               Choose your preferred course
             </h1>
           </div>
-          <div className="flex flex-col gap-6">
+          <form onSubmit={handleFinish} className="flex flex-col gap-6">
             <div className="grid grid-cols-3 gap-2 md:grid-cols-4 xl:grid-cols-5">
               {courses.map((course, index) => {
                 const IconComponent = iconMap[course.icon]; // Convert name back to component
@@ -75,10 +80,10 @@ const CourseSelect = () => {
             </div>
             <div className="w-full flex items-center justify-end">
               <Button type="submit" className="hover:cursor-pointer" disabled={activeCourse === ""}>
-                <Link to={`/${activeCourse}`}>Finish</Link>
+                <a href="/">Finish</a>
               </Button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

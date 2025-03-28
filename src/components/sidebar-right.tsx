@@ -1,7 +1,5 @@
 import * as React from "react";
-import { Plus } from "lucide-react";
 import Profile from "./profile";
-import { Calendars } from "./calendars";
 import { DatePicker } from "./date-picker";
 import { NavUser } from "./nav-user";
 import {
@@ -9,10 +7,6 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarRail,
   SidebarSeparator,
 } from "./ui/sidebar";
 import {
@@ -27,9 +21,12 @@ const time =  new Date()
 const year = time.getFullYear();
 const fulldate = Day + " "  + Month + ", "  + year.toString() + " " + Time
 // This is sample data.
+
+const user  = window.electronAPI.getAuthenticatedUser()
+
 const data = {
   user: {
-    name: "Good Morning Marvin",
+    name: user,
     email: fulldate,
     avatar: "/avatars/shadcn.jpg",
   }, 

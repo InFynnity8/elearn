@@ -14,7 +14,7 @@ import {
   AlertDialogTrigger,
 } from "../../../components/ui/alert-dialog";
 
-const questions = [
+const biology = [
   {
     questionText:
       "Which type of intermolecular force is responsible for the anomalously high boiling point of hydrogen fluoride?",
@@ -508,12 +508,418 @@ const questions = [
   },
 ];
 
+const physics = [
+  {
+    questionText:
+      "Which fundamental force is responsible for holding atomic nuclei together?",
+    answerOptions: [
+      { answerText: "Gravitational force", isCorrect: false },
+      { answerText: "Electromagnetic force", isCorrect: false },
+      { answerText: "Strong nuclear force", isCorrect: true },
+      { answerText: "Weak nuclear force", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Strong nuclear force",
+    answerIndex: 2,
+  },
+  {
+    questionText:
+      "What is the escape velocity from Earth's surface approximately?",
+    answerOptions: [
+      { answerText: "7.9 km/s", isCorrect: false },
+      { answerText: "11.2 km/s", isCorrect: true },
+      { answerText: "3.6 km/s", isCorrect: false },
+      { answerText: "25.2 km/s", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "11.2 km/s",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which of the following best explains why an astronaut appears weightless in orbit?",
+    answerOptions: [
+      { answerText: "There is no gravity in space", isCorrect: false },
+      {
+        answerText: "The astronaut is in free fall around Earth",
+        isCorrect: true,
+      },
+      {
+        answerText: "The astronaut's mass is reduced in space",
+        isCorrect: false,
+      },
+      { answerText: "There is no air resistance in space", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "The astronaut is in free fall around Earth",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which law states that the pressure of a gas is inversely proportional to its volume at constant temperature?",
+    answerOptions: [
+      { answerText: "Boyle's Law", isCorrect: true },
+      { answerText: "Charles's Law", isCorrect: false },
+      { answerText: "Gay-Lussac's Law", isCorrect: false },
+      { answerText: "Avogadro's Law", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Boyle's Law",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "What is the primary reason for the sky appearing blue during the day?",
+    answerOptions: [
+      { answerText: "Rayleigh scattering", isCorrect: true },
+      { answerText: "Mie scattering", isCorrect: false },
+      { answerText: "Reflection from oceans", isCorrect: false },
+      { answerText: "Absorption by oxygen", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Rayleigh scattering",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "In a vacuum, all electromagnetic waves travel at the same speed. What is this speed?",
+    answerOptions: [
+      { answerText: "3 × 10^6 m/s", isCorrect: false },
+      { answerText: "3 × 10^8 m/s", isCorrect: true },
+      { answerText: "3 × 10^10 m/s", isCorrect: false },
+      { answerText: "3 × 10^12 m/s", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "3 × 10^8 m/s",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which phenomenon explains the bending of light when it passes from one medium to another?",
+    answerOptions: [
+      { answerText: "Reflection", isCorrect: false },
+      { answerText: "Refraction", isCorrect: true },
+      { answerText: "Diffraction", isCorrect: false },
+      { answerText: "Dispersion", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Refraction",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which type of wave requires a medium to propagate?",
+    answerOptions: [
+      { answerText: "Electromagnetic waves", isCorrect: false },
+      { answerText: "Sound waves", isCorrect: true },
+      { answerText: "Gamma rays", isCorrect: false },
+      { answerText: "X-rays", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Sound waves",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which quantity is conserved in an elastic collision but not necessarily in an inelastic collision?",
+    answerOptions: [
+      { answerText: "Momentum", isCorrect: false },
+      { answerText: "Kinetic energy", isCorrect: true },
+      { answerText: "Mass", isCorrect: false },
+      { answerText: "Angular momentum", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Kinetic energy",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "What is the SI unit of electric charge?",
+    answerOptions: [
+      { answerText: "Newton", isCorrect: false },
+      { answerText: "Coulomb", isCorrect: true },
+      { answerText: "Joule", isCorrect: false },
+      { answerText: "Tesla", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Coulomb",
+    answerIndex: 1,
+  },
+];
+
+const chemistry = [
+  {
+    questionText:
+      "Which subatomic particle is responsible for an element’s chemical properties?",
+    answerOptions: [
+      { answerText: "Neutron", isCorrect: false },
+      { answerText: "Proton", isCorrect: false },
+      { answerText: "Electron", isCorrect: true },
+      { answerText: "Photon", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Electron",
+    answerIndex: 2,
+  },
+  {
+    questionText:
+      "Which type of chemical bond involves the transfer of electrons?",
+    answerOptions: [
+      { answerText: "Covalent bond", isCorrect: false },
+      { answerText: "Ionic bond", isCorrect: true },
+      { answerText: "Hydrogen bond", isCorrect: false },
+      { answerText: "Metallic bond", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Ionic bond",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "What is the pH of a neutral solution at 25°C?",
+    answerOptions: [
+      { answerText: "0", isCorrect: false },
+      { answerText: "7", isCorrect: true },
+      { answerText: "14", isCorrect: false },
+      { answerText: "10", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "7",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which gas is most commonly produced during the reaction of an acid with a metal?",
+    answerOptions: [
+      { answerText: "Oxygen", isCorrect: false },
+      { answerText: "Nitrogen", isCorrect: false },
+      { answerText: "Hydrogen", isCorrect: true },
+      { answerText: "Carbon dioxide", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Hydrogen",
+    answerIndex: 2,
+  },
+  {
+    questionText:
+      "What is the chemical formula for ammonia?",
+    answerOptions: [
+      { answerText: "NH₄", isCorrect: false },
+      { answerText: "NO₃", isCorrect: false },
+      { answerText: "NH₃", isCorrect: true },
+      { answerText: "N₂O", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "NH₃",
+    answerIndex: 2,
+  },
+  {
+    questionText:
+      "Which type of reaction involves the breakdown of a compound into simpler substances?",
+    answerOptions: [
+      { answerText: "Synthesis reaction", isCorrect: false },
+      { answerText: "Decomposition reaction", isCorrect: true },
+      { answerText: "Combustion reaction", isCorrect: false },
+      { answerText: "Neutralization reaction", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Decomposition reaction",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Which of the following is an example of an allotrope of carbon?",
+    answerOptions: [
+      { answerText: "Graphite", isCorrect: true },
+      { answerText: "Carbon monoxide", isCorrect: false },
+      { answerText: "Methane", isCorrect: false },
+      { answerText: "Carbonate", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Graphite",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "Which law states that mass is neither created nor destroyed in a chemical reaction?",
+    answerOptions: [
+      { answerText: "Boyle's Law", isCorrect: false },
+      { answerText: "Law of Conservation of Mass", isCorrect: true },
+      { answerText: "Dalton’s Law", isCorrect: false },
+      { answerText: "Avogadro’s Law", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Law of Conservation of Mass",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "What is the primary reason noble gases are chemically inert?",
+    answerOptions: [
+      { answerText: "They have high densities", isCorrect: false },
+      { answerText: "They have a complete outer electron shell", isCorrect: true },
+      { answerText: "They are highly electronegative", isCorrect: false },
+      { answerText: "They readily gain electrons", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "They have a complete outer electron shell",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "What is the oxidation state of sulfur in sulfuric acid (H₂SO₄)?",
+    answerOptions: [
+      { answerText: "+2", isCorrect: false },
+      { answerText: "+4", isCorrect: false },
+      { answerText: "+6", isCorrect: true },
+      { answerText: "-2", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "+6",
+    answerIndex: 2,
+  },
+];
+
+const emathematics = [
+  {
+    questionText:
+      "Solve for x: 2x² - 5x - 3 = 0",
+    answerOptions: [
+      { answerText: "x = 3, x = -1/2", isCorrect: true },
+      { answerText: "x = -3, x = 1/2", isCorrect: false },
+      { answerText: "x = 5, x = -3", isCorrect: false },
+      { answerText: "x = -5, x = 3", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "x = 3, x = -1/2",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "Find the derivative of f(x) = 3x³ - 5x² + 2x - 7.",
+    answerOptions: [
+      { answerText: "9x² - 10x + 2", isCorrect: true },
+      { answerText: "6x² - 5x + 2", isCorrect: false },
+      { answerText: "9x² - 5x + 2", isCorrect: false },
+      { answerText: "3x² - 10x + 2", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "9x² - 10x + 2",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "If A = [ 2  3 ] and B = [ 1  -1 ], what is A + B?",
+    answerOptions: [
+      { answerText: "[3 2]", isCorrect: false },
+      { answerText: "[3 2; 3 -2]", isCorrect: false },
+      { answerText: "[3 2; -1 2]", isCorrect: false },
+      { answerText: "[3 2; 3 -1]", isCorrect: true },
+    ],
+    isAnswered: false,
+    answer: "[3 2; 3 -1]",
+    answerIndex: 3,
+  },
+  {
+    questionText:
+      "Find the sum of the first 10 terms of the arithmetic sequence 3, 7, 11, 15, ...",
+    answerOptions: [
+      { answerText: "360", isCorrect: false },
+      { answerText: "280", isCorrect: true },
+      { answerText: "260", isCorrect: false },
+      { answerText: "300", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "280",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "The probability of an event occurring is 0.2. What is the probability that it does NOT occur?",
+    answerOptions: [
+      { answerText: "0.8", isCorrect: true },
+      { answerText: "0.2", isCorrect: false },
+      { answerText: "0.5", isCorrect: false },
+      { answerText: "0.1", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "0.8",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "If sinθ = 3/5, find cosθ assuming θ is in the first quadrant.",
+    answerOptions: [
+      { answerText: "4/5", isCorrect: true },
+      { answerText: "3/4", isCorrect: false },
+      { answerText: "5/3", isCorrect: false },
+      { answerText: "1/2", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "4/5",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "Solve for x: log₂(x) + log₂(4) = 3",
+    answerOptions: [
+      { answerText: "4", isCorrect: false },
+      { answerText: "8", isCorrect: true },
+      { answerText: "16", isCorrect: false },
+      { answerText: "2", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "8",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Find the area of a triangle with base 8cm and height 5cm.",
+    answerOptions: [
+      { answerText: "40 cm²", isCorrect: false },
+      { answerText: "20 cm²", isCorrect: true },
+      { answerText: "25 cm²", isCorrect: false },
+      { answerText: "15 cm²", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "20 cm²",
+    answerIndex: 1,
+  },
+  {
+    questionText:
+      "Find the modulus of the complex number 3 + 4i.",
+    answerOptions: [
+      { answerText: "5", isCorrect: true },
+      { answerText: "4", isCorrect: false },
+      { answerText: "3", isCorrect: false },
+      { answerText: "7", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "5",
+    answerIndex: 0,
+  },
+  {
+    questionText:
+      "Find the determinant of the matrix: | 2  3 | | 4  5 |.",
+    answerOptions: [
+      { answerText: "2", isCorrect: false },
+      { answerText: "-2", isCorrect: false },
+      { answerText: "-1", isCorrect: false },
+      { answerText: "-2", isCorrect: true },
+    ],
+    isAnswered: false,
+    answer: "-2",
+    answerIndex: 3,
+  },
+];
+
+
 const Quizlet = () => {
   const { subject } = useParams();
   const [questionNumber, setQuestionNumber] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState(0);
-  const [quizQuestions, setQuizQuestions] = useState(questions);
+  const [quizQuestions, setQuizQuestions] = useState(subject === "biology" ? biology : subject === "physics" ? physics : subject === "chemistry" ? chemistry : emathematics);
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, number | null>
   >({});
@@ -552,7 +958,7 @@ const Quizlet = () => {
   };
 
   const handleFinish = () => {
-    questions.map((question, ind) => {
+    quizQuestions.map((question, ind) => {
       if (question.answerIndex === selectedAnswers[ind]) {
         setScore((prevScore) => prevScore + 1);
       }
@@ -565,11 +971,11 @@ const Quizlet = () => {
 
   return (
     <div className="p-4">
-      <div className="flex items-center justify-between xl:flex-row flex-col">
+      <div className="flex items-center xl:items-start justify-between xl:flex-row flex-col">
         {/* Display question*/}
         <div className="flex-1">
-          <h1 className="my-2 font-medium text-[16px] text-blue-400">
-            {subject}
+          <h1 className="my-2 font-medium text-[16px] text-blue-400 capitalize">
+            {subject} Quiz
           </h1>
           <Card className="p-4 my-4">
             <h1>{quizQuestions[questionNumber].questionText}</h1>
@@ -607,7 +1013,7 @@ const Quizlet = () => {
             {questionNumber < quizQuestions.length - 1 ? (
               <Button
                 onClick={() => handleNext()}
-                disabled={questionNumber >= questions.length - 1}
+                disabled={questionNumber >= quizQuestions.length - 1}
               >
                 Next
               </Button>
