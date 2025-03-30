@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Card } from "../../../components/ui/card";
+import { useEffect, useState } from "react";
+import { Card, CardFooter } from "../../../components/ui/card";
 import { useParams } from "react-router-dom";
 import { Button } from "../../../components/ui/button";
 import {
@@ -607,8 +607,7 @@ const physics = [
     answerIndex: 1,
   },
   {
-    questionText:
-      "Which type of wave requires a medium to propagate?",
+    questionText: "Which type of wave requires a medium to propagate?",
     answerOptions: [
       { answerText: "Electromagnetic waves", isCorrect: false },
       { answerText: "Sound waves", isCorrect: true },
@@ -633,8 +632,7 @@ const physics = [
     answerIndex: 1,
   },
   {
-    questionText:
-      "What is the SI unit of electric charge?",
+    questionText: "What is the SI unit of electric charge?",
     answerOptions: [
       { answerText: "Newton", isCorrect: false },
       { answerText: "Coulomb", isCorrect: true },
@@ -675,8 +673,7 @@ const chemistry = [
     answerIndex: 1,
   },
   {
-    questionText:
-      "What is the pH of a neutral solution at 25°C?",
+    questionText: "What is the pH of a neutral solution at 25°C?",
     answerOptions: [
       { answerText: "0", isCorrect: false },
       { answerText: "7", isCorrect: true },
@@ -701,8 +698,7 @@ const chemistry = [
     answerIndex: 2,
   },
   {
-    questionText:
-      "What is the chemical formula for ammonia?",
+    questionText: "What is the chemical formula for ammonia?",
     answerOptions: [
       { answerText: "NH₄", isCorrect: false },
       { answerText: "NO₃", isCorrect: false },
@@ -757,7 +753,10 @@ const chemistry = [
       "What is the primary reason noble gases are chemically inert?",
     answerOptions: [
       { answerText: "They have high densities", isCorrect: false },
-      { answerText: "They have a complete outer electron shell", isCorrect: true },
+      {
+        answerText: "They have a complete outer electron shell",
+        isCorrect: true,
+      },
       { answerText: "They are highly electronegative", isCorrect: false },
       { answerText: "They readily gain electrons", isCorrect: false },
     ],
@@ -782,8 +781,7 @@ const chemistry = [
 
 const emathematics = [
   {
-    questionText:
-      "Solve for x: 2x² - 5x - 3 = 0",
+    questionText: "Solve for x: 2x² - 5x - 3 = 0",
     answerOptions: [
       { answerText: "x = 3, x = -1/2", isCorrect: true },
       { answerText: "x = -3, x = 1/2", isCorrect: false },
@@ -795,8 +793,7 @@ const emathematics = [
     answerIndex: 0,
   },
   {
-    questionText:
-      "Find the derivative of f(x) = 3x³ - 5x² + 2x - 7.",
+    questionText: "Find the derivative of f(x) = 3x³ - 5x² + 2x - 7.",
     answerOptions: [
       { answerText: "9x² - 10x + 2", isCorrect: true },
       { answerText: "6x² - 5x + 2", isCorrect: false },
@@ -808,29 +805,28 @@ const emathematics = [
     answerIndex: 0,
   },
   {
-    questionText:
-      "If A = [ 2  3 ] and B = [ 1  -1 ], what is A + B?",
+    questionText: "If A = [ 2  3 ] and B = [ 1  -1 ], what is A + B?",
     answerOptions: [
-      { answerText: "[3 2]", isCorrect: false },
-      { answerText: "[3 2; 3 -2]", isCorrect: false },
-      { answerText: "[3 2; -1 2]", isCorrect: false },
-      { answerText: "[3 2; 3 -1]", isCorrect: true },
+      { answerText: "[3 2]", isCorrect: true },
+      { answerText: "[3 -2]", isCorrect: false },
+      { answerText: "[-1 2]", isCorrect: false },
+      { answerText: "[3 -1]", isCorrect: false },
     ],
     isAnswered: false,
-    answer: "[3 2; 3 -1]",
-    answerIndex: 3,
+    answer: "[3 2]",
+    answerIndex: 0,
   },
   {
     questionText:
       "Find the sum of the first 10 terms of the arithmetic sequence 3, 7, 11, 15, ...",
     answerOptions: [
       { answerText: "360", isCorrect: false },
-      { answerText: "280", isCorrect: true },
+      { answerText: "210", isCorrect: true },
       { answerText: "260", isCorrect: false },
       { answerText: "300", isCorrect: false },
     ],
     isAnswered: false,
-    answer: "280",
+    answer: "210",
     answerIndex: 1,
   },
   {
@@ -860,21 +856,19 @@ const emathematics = [
     answerIndex: 0,
   },
   {
-    questionText:
-      "Solve for x: log₂(x) + log₂(4) = 3",
+    questionText: "Solve for x: log₂(x) + log₂(4) = 3",
     answerOptions: [
       { answerText: "4", isCorrect: false },
-      { answerText: "8", isCorrect: true },
+      { answerText: "2", isCorrect: true },
       { answerText: "16", isCorrect: false },
-      { answerText: "2", isCorrect: false },
+      { answerText: "8", isCorrect: false },
     ],
     isAnswered: false,
-    answer: "8",
+    answer: "2",
     answerIndex: 1,
   },
   {
-    questionText:
-      "Find the area of a triangle with base 8cm and height 5cm.",
+    questionText: "Find the area of a triangle with base 8cm and height 5cm.",
     answerOptions: [
       { answerText: "40 cm²", isCorrect: false },
       { answerText: "20 cm²", isCorrect: true },
@@ -886,8 +880,7 @@ const emathematics = [
     answerIndex: 1,
   },
   {
-    questionText:
-      "Find the modulus of the complex number 3 + 4i.",
+    questionText: "Find the modulus of the complex number 3 + 4i.",
     answerOptions: [
       { answerText: "5", isCorrect: true },
       { answerText: "4", isCorrect: false },
@@ -899,11 +892,10 @@ const emathematics = [
     answerIndex: 0,
   },
   {
-    questionText:
-      "Find the determinant of the matrix: | 2  3 | | 4  5 |.",
+    questionText: "Find the determinant of the matrix: | 2  3 | | 4  5 |.",
     answerOptions: [
       { answerText: "2", isCorrect: false },
-      { answerText: "-2", isCorrect: false },
+      { answerText: "-4", isCorrect: false },
       { answerText: "-1", isCorrect: false },
       { answerText: "-2", isCorrect: true },
     ],
@@ -913,47 +905,43 @@ const emathematics = [
   },
 ];
 
-
 const Quizlet = () => {
   const { subject } = useParams();
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [answered, setAnswered] = useState(false);
+  // const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState(0);
-  const [quizQuestions, setQuizQuestions] = useState(subject === "biology" ? biology : subject === "physics" ? physics : subject === "chemistry" ? chemistry : emathematics);
+  const [quizQuestions, setQuizQuestions] = useState(
+    subject === "biology"
+      ? biology
+      : subject === "physics"
+      ? physics
+      : subject === "chemistry"
+      ? chemistry
+      : emathematics
+  );
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, number | null>
   >({});
 
   const questionNav = (index: number) => {
-    setAnswered(false);
     setQuestionNumber(index);
   };
 
   const handleSelectedAnswer = (index: any, isCorrect: boolean) => {
-    if (!answered) {
-      setSelectedAnswers((prev) => ({
-        ...prev,
-        [questionNumber]: index, // Store selected index for the current question
-      }));
-      setAnswered(true);
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [questionNumber]: index, // Store selected index for the current question
+    }));
 
-      // if (isCorrect) {
-      //   setScore((prevScore) => prevScore + 1);
-      // }
-
-      // Update isAnswered for the current question
-      setQuizQuestions((prevQuestions) =>
-        prevQuestions.map((question, qIndex) =>
-          qIndex === questionNumber
-            ? { ...question, isAnswered: true }
-            : question
-        )
-      );
-    }
+    setQuizQuestions((prevQuestions) =>
+      prevQuestions.map((question, qIndex) =>
+        qIndex === questionNumber ? { ...question, isAnswered: true } : question
+      )
+    );
   };
+  console.log(selectedAnswers);
 
   const handleNext = () => {
-    setAnswered(false);
     setQuestionNumber(questionNumber + 1);
   };
 
@@ -963,11 +951,40 @@ const Quizlet = () => {
         setScore((prevScore) => prevScore + 1);
       }
     });
+    console.log(selectedAnswers);
+  };
+
+  const handleClearChoice = () => {
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [questionNumber]: null, // Clear the selected index for the current question
+    }));
+    setQuizQuestions((prevQuestions) =>
+      prevQuestions.map((question, qIndex) =>
+        qIndex === questionNumber
+          ? { ...question, isAnswered: false }
+          : question
+      )
+    );
+  };
+
+  const handleReview = () => {
+    
   };
 
   const handleDone = () => {
-    setScore(0)
-  }
+    setQuizQuestions(  subject === "biology"
+      ? biology
+      : subject === "physics"
+      ? physics
+      : subject === "chemistry"
+      ? chemistry
+      : emathematics
+  );
+    setQuestionNumber(0);
+    setScore(0);
+    setSelectedAnswers({});
+  };
 
   return (
     <div className="p-4">
@@ -998,6 +1015,15 @@ const Quizlet = () => {
                 )
               )}
             </div>
+            <CardFooter className="p-0 flex justify-end">
+              <Button
+                onClick={handleClearChoice}
+                variant="ghost"
+                className="text-red-500 hover:text-red-500"
+              >
+                Clear choice
+              </Button>
+            </CardFooter>
           </Card>
           <div className="flex justify-between items-center">
             <Button
@@ -1019,7 +1045,7 @@ const Quizlet = () => {
               </Button>
             ) : (
               <AlertDialog>
-                <AlertDialogTrigger>
+                <AlertDialogTrigger asChild>
                   <Button
                     onClick={() => handleFinish()}
                     className="bg-green-500 text-white hover:bg-green-600"
@@ -1042,8 +1068,8 @@ const Quizlet = () => {
                     <AlertDialogCancel onClick={() => handleDone()}>
                       Close
                     </AlertDialogCancel>
-                    <AlertDialogAction onClick={() => handleDone()}>
-                      Done
+                    <AlertDialogAction onClick={() => handleReview()}>
+                      Review
                     </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
@@ -1061,8 +1087,9 @@ const Quizlet = () => {
               {quizQuestions.map((question, i) => (
                 <Card
                   className={`${
-                    question.isAnswered && "bg-green-400 text-white"
-                  } hover:bg-muted flex items-center justify-center h-15 w-17 cursor-pointer`}
+                    question.isAnswered &&
+                    "bg-green-400 text-white hover:text-green-400 hover:bg-muted" 
+                  } ${questionNumber === i && "border-b-2 border-slate-700"}  flex items-center justify-center h-15 w-17 cursor-pointer font-medium text-[16px]`}
                   onClick={() => questionNav(i)}
                   key={i}
                 >
