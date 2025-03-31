@@ -13,12 +13,13 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
+import { AiOutlineVideoCameraAdd } from "react-icons/ai";
+import { FaBook } from "react-icons/fa6";
 
 export function NavSecondary({ ...props }) {
   const { isMobile } = useSidebar();
@@ -72,19 +73,16 @@ export function NavSecondary({ ...props }) {
                 Settings
               </DropdownMenuLabel>
               <DropdownMenuItem>
-                <Button onClick={handleAddVideo}>
-                  Add Video
+                <Button variant="ghost" onClick={handleAddVideo}>
+                <AiOutlineVideoCameraAdd className="text-black"/>  Add Video
                 </Button>
               </DropdownMenuItem>
               <DropdownMenuItem>
-              <Button onClick={handleAddBook}>
-                  Add Book
+              <Button variant="ghost" onClick={handleAddBook}>
+              <FaBook className="text-black"/>
+              Add Book
                 </Button>
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>something is here</DropdownMenuItem>
-              <DropdownMenuItem>something is here</DropdownMenuItem>
-              <DropdownMenuItem>something is here</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
