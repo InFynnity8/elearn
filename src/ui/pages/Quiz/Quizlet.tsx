@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, CardFooter } from "../../../components/ui/card";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../../components/ui/button";
 import {
   AlertDialog,
@@ -13,6 +13,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../../../components/ui/alert-dialog";
+import { MdArrowBack } from "react-icons/md";
 
 const biology = [
   {
@@ -906,7 +907,9 @@ const emathematics = [
 ];
 
 const Quizlet = () => {
+  const navigate = useNavigate();
   const { subject } = useParams();
+  const [isReviewMode, setIsReviewMode] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
   // const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState(0);
@@ -969,32 +972,45 @@ const Quizlet = () => {
   };
 
   const handleReview = () => {
-    
+    setIsReviewMode(true);
+    setQuestionNumber(0);
   };
 
   const handleDone = () => {
-    setQuizQuestions(  subject === "biology"
-      ? biology
-      : subject === "physics"
-      ? physics
-      : subject === "chemistry"
-      ? chemistry
-      : emathematics
-  );
+    setQuizQuestions(
+      subject === "biology"
+        ? biology
+        : subject === "physics"
+        ? physics
+        : subject === "chemistry"
+        ? chemistry
+        : emathematics
+    );
     setQuestionNumber(0);
     setScore(0);
+    setIsReviewMode(false);
     setSelectedAnswers({});
   };
 
   return (
     <div className="p-4">
+      <div className="">
+        <div
+          onClick={() => navigate(-1)}
+          className="cursor-pointer hover:text-blue-400 flex items-center"
+        >
+          <MdArrowBack />
+          <p>Go Back</p>
+        </div>
+      </div>
       <div className="flex items-center xl:items-start justify-between xl:flex-row flex-col">
         {/* Display question*/}
-        <div className="flex-1">
+        <div className="flex-1 w-full">
           <h1 className="my-2 font-medium text-[16px] text-blue-400 capitalize">
             {subject} Quiz
           </h1>
           <Card className="p-4 my-4">
+            {isReviewMode && <div className="w-full flex items-center justify-between"><h1 className="text-gray-400">Review Mode</h1> <Button className="bg-black text-white cursor-pointer hover:bg-black" onClick={handleDone}>Retake Quiz</Button> </div> }
             <h1>{quizQuestions[questionNumber].questionText}</h1>
             <div className="flex flex-col">
               {quizQuestions[questionNumber].answerOptions.map(
@@ -1002,8 +1018,17 @@ const Quizlet = () => {
                   <Button
                     className={`${
                       selectedAnswers[questionNumber] === index
-                        ? "bg-green-500 hover:bg-green-500 text-white"
+                        ? "bg-black hover:bg-black text-white"
                         : "bg-muted text-black"
+                    } ${
+                      isReviewMode
+                        ? option.isCorrect
+                          ? "bg-green-500 text-white"
+                          : selectedAnswers[questionNumber] === index &&
+                            "bg-red-500"
+                        : ""
+                    } ${
+                      isReviewMode && "pointer-events-none"
                     } my-1 cursor-pointer border-b-[1px]  hover:text-white transition-all duration-75`}
                     key={index}
                     onClick={() =>
@@ -1017,6 +1042,7 @@ const Quizlet = () => {
             </div>
             <CardFooter className="p-0 flex justify-end">
               <Button
+                disabled={isReviewMode}
                 onClick={handleClearChoice}
                 variant="ghost"
                 className="text-red-500 hover:text-red-500"
@@ -1088,8 +1114,10 @@ const Quizlet = () => {
                 <Card
                   className={`${
                     question.isAnswered &&
-                    "bg-green-400 text-white hover:text-green-400 hover:bg-muted" 
-                  } ${questionNumber === i && "border-b-2 border-slate-700"}  flex items-center justify-center h-15 w-17 cursor-pointer font-medium text-[16px]`}
+                    "bg-green-400 text-white hover:text-green-400 hover:bg-muted"
+                  } ${
+                    questionNumber === i && "border-b-2 border-slate-700"
+                  } hover:bg-muted flex items-center justify-center h-15 w-17 cursor-pointer font-medium text-[16px]`}
                   onClick={() => questionNav(i)}
                   key={i}
                 >
