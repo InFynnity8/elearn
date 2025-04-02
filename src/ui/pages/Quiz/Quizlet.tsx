@@ -14,6 +14,8 @@ import {
   AlertDialogTrigger,
 } from "../../../components/ui/alert-dialog";
 import { MdArrowBack } from "react-icons/md";
+import QuizTimer from "@/components/QuizTimer";
+import { toast } from "sonner";
 
 const biology = [
   {
@@ -909,6 +911,7 @@ const emathematics = [
 const Quizlet = () => {
   const navigate = useNavigate();
   const { subject } = useParams();
+  const [finished, setFinished] = useState(false)
   const [isReviewMode, setIsReviewMode] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
   // const [answered, setAnswered] = useState(false);
@@ -954,7 +957,7 @@ const Quizlet = () => {
         setScore((prevScore) => prevScore + 1);
       }
     });
-    console.log(selectedAnswers);
+    setFinished(true)
   };
 
   const handleClearChoice = () => {
@@ -974,6 +977,7 @@ const Quizlet = () => {
   const handleReview = () => {
     setIsReviewMode(true);
     setQuestionNumber(0);
+    setFinished(false) 
   };
 
   const handleDone = () => {
@@ -990,18 +994,26 @@ const Quizlet = () => {
     setScore(0);
     setIsReviewMode(false);
     setSelectedAnswers({});
+    setFinished(false) 
   };
+
+  const handleTimeUp = () => {
+    toast.info("Time Up")
+    handleFinish()
+    handleReview()
+  }
 
   return (
     <div className="p-4">
-      <div className="">
+      <div className="flex justify-between items-center">
         <div
           onClick={() => navigate(-1)}
-          className="cursor-pointer hover:text-blue-400 flex items-center"
+          className="cursor-pointer hover:text-blue-400 flex items-center justify-between"
         >
-          <MdArrowBack />
-          <p>Go Back</p>
+            <MdArrowBack />
+            <p>Go Back</p>
         </div>
+          {(!isReviewMode || finished) && <QuizTimer duration={quizQuestions.length * 10} onTimeUp={handleTimeUp} />}
       </div>
       <div className="flex items-center xl:items-start justify-between xl:flex-row flex-col">
         {/* Display question*/}
@@ -1010,7 +1022,20 @@ const Quizlet = () => {
             {subject} Quiz
           </h1>
           <Card className="p-4 my-4">
-            {isReviewMode && <div className="w-full flex items-center justify-between"><h1 className="text-gray-400">Review Mode</h1> <Button className="bg-black text-white cursor-pointer hover:bg-black" onClick={handleDone}>Retake Quiz</Button> </div> }
+            {isReviewMode && (
+              <div className="w-full flex items-center justify-between">
+                <h1 className="text-gray-400">
+                  Review Mode{" "}
+                  <span className="text-black font-medium"> Score {score}</span>
+                </h1>
+                <Button
+                  className="bg-black text-white cursor-pointer hover:bg-black"
+                  onClick={handleDone}
+                >
+                  Retake Quiz
+                </Button>
+              </div>
+            )}
             <h1>{quizQuestions[questionNumber].questionText}</h1>
             <div className="flex flex-col">
               {quizQuestions[questionNumber].answerOptions.map(
@@ -1073,6 +1098,7 @@ const Quizlet = () => {
               <AlertDialog>
                 <AlertDialogTrigger asChild>
                   <Button
+                    disabled={isReviewMode}
                     onClick={() => handleFinish()}
                     className="bg-green-500 text-white hover:bg-green-600"
                   >
@@ -1091,8 +1117,8 @@ const Quizlet = () => {
                     You scored {score} out of {quizQuestions.length}
                   </p>
                   <AlertDialogFooter>
-                    <AlertDialogCancel onClick={() => handleDone()}>
-                      Close
+                    <AlertDialogCancel onClick={() => {navigate(-1); setFinished(false) } }>
+                      Go Back
                     </AlertDialogCancel>
                     <AlertDialogAction onClick={() => handleReview()}>
                       Review
@@ -1125,6 +1151,38 @@ const Quizlet = () => {
                 </Card>
               ))}
             </div>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button
+                  disabled={isReviewMode}
+                  variant="ghost"
+                  onClick={() => handleFinish()}
+                  className=" text-blue-400 w-fit p-0"
+                >
+                  Finish attempt
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent className="w-full flex flex-col justify-center items-center">
+                <AlertDialogHeader className="w-full flex justify-center items-center">
+                  <AlertDialogTitle>Score</AlertDialogTitle>
+                  <AlertDialogDescription className="w-full flex justify-center items-center">
+                    You can do better
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <p className="text-[20px]">
+                  {" "}
+                  You scored {score} out of {quizQuestions.length}
+                </p>
+                <AlertDialogFooter>
+                  <AlertDialogCancel onClick={() => {navigate(-1); setFinished(false)}}>
+                  Go Back
+                  </AlertDialogCancel>
+                  <AlertDialogAction onClick={() => handleReview()}>
+                    Review
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
         </div>
       </div>
