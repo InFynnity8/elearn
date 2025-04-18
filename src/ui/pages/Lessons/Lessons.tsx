@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Button } from "../../../components/ui/button";
 import {
   Card,
@@ -6,67 +5,77 @@ import {
   CardFooter,
   CardHeader,
 } from "../../../components/ui/card";
-import toy from "../../assets/profile.png";
-import bgcover from "../../assets/elearn.jpg";
-import t1 from "../../assets/teach.png";
+import t1 from "../../assets/agri.jpg";
 import t2 from "../../assets/thumbchem5.webp";
-import t3 from "../../assets/thumbnail6.png";
+import t3 from "../../assets/social.jpg";
 import t4 from "../../assets/thumnail.jpg";
 import t5 from "../../assets/thumnailmath.webp";
 import t6 from "../../assets/thumnail2.webp";
-import t7 from "../assets/elearn.jpg";
-import t8 from "../../assets/thumbnail9.png";
-import t9 from "../../assets/bg2.jpeg";
-import { useSelector } from "react-redux";
+import t7 from "../../assets/geo.jpg";
+import t8 from "../../assets/eng2.jpg";
+import t9 from "../../assets/phy.jpg";
+import t10 from "../../assets/interscience.png"; 
+import t11 from "../../assets/coremaths.jpg";
 import { Link } from "react-router-dom";
 
 const eSubjects = [
   {
     name: "BIOLOGY",
-    title: "",
-    thumbnail: "",
+    title: "Introduction to Human Anatomy and Physiology",
+    thumbnail: t4,
   },
   {
     name: "PHYSICS",
-    title: "",
+    title: "Fundamentals of Motion, Force, and Energy",
+    thumbnail: t9, 
   },
   {
     name: "E-MATHEMATICS",
-    title: "",
+    title: "Core Concepts in Algebra, Geometry, and Trigonometry",
+    thumbnail: t5,
   },
   {
     name: "CHEMISTRY",
-    title: "",
+    title: "Basics of Matter, Elements, and Chemical Reactions",
+    thumbnail: t2,
   },
   {
     name: "GEOGRAPHY",
-    title: "",
+    title: "Understanding Earth's Landscapes and Environments",
+    thumbnail: t7,
   },
   {
     name: "ICT",
-    title: "",
+    title: "Foundations of Information and Communication Technology",
+    thumbnail: t6,
   },
   {
     name: "AGRICULTURE",
-    title: "",
+    title: "Introduction to Agricultural Science and Practices",
+    thumbnail: t1,
   },
 ];
+
 const cSubjects = [
   {
     name: "ENGLISH",
     title: "",
+    thumbnail: t8,
   },
   {
     name: "SOCIAL STUDIES",
     title: "",
+    thumbnail: t3,
   },
   {
     name: "INTEGRATED SCIENCE",
     title: "",
+    thumbnail: t10,
   },
   {
     name: "CORE MATHEMATICS",
     title: "",
+    thumbnail: t11,
   },
 ];
 
@@ -83,11 +92,11 @@ const Lessons = () => {
               <CardHeader className="p-0">
                 <div
                   style={{
-                    backgroundImage: `url(${t2})`,
+                    backgroundImage: `url(${subject.thumbnail})`,
                     backgroundSize: "cover",
                     objectFit: "contain",
                   }}
-                  className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
+                  className="border-[1px] border-gray-100 flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
                 />
               </CardHeader>
               <CardDescription className="p-0 m-0">
@@ -95,7 +104,7 @@ const Lessons = () => {
                   {subject.name}
                 </p>
                 <p className="text-muted-foreground font-medium text-[14px]">
-                  Introduction to Human Anatomy and Physiology
+                  {subject.title}
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">
@@ -114,11 +123,11 @@ const Lessons = () => {
               <CardHeader className="p-0">
                 <div
                   style={{
-                    backgroundImage: `url(${t2})`,
+                    backgroundImage: `url(${subject.thumbnail})`,
                     backgroundSize: "cover",
                     objectFit: "contain",
                   }}
-                  className="flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
+                  className="border-[1px] border-gray-100 flex items-center justify-between bg-blue-400 rounded-[10px] h-32 w-full"
                 />
               </CardHeader>
               <CardDescription className="p-0 m-0">
@@ -126,7 +135,7 @@ const Lessons = () => {
                   {subject.name}
                 </p>
                 <p className="text-muted-foreground font-medium text-[14px]">
-                  Introduction to Human Anatomy and Physiology
+                  {subject.title}
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">

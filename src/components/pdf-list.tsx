@@ -27,11 +27,11 @@ import { MdArrowBack } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 const covers = [
-  physicsCover,
-  geo,
-  mathCover,
-  chemistryCover,
   biologyCover,
+  chemistryCover,
+  physicsCover,
+  mathCover,
+  geo,
   agric,
   ICT,
 ];

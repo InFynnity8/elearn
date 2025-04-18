@@ -17,7 +17,7 @@ const QuizTimer = ({ duration, onTimeUp }: { duration: number; onTimeUp: () => v
     return () => clearInterval(timer);
   }, [timeLeft, onTimeUp]);
 
-  return <div className="font-medium text-[20px] text-green-500 flex items-center"> <IoIosAlarm size={20}/> {Math.floor(timeLeft/60)} min {timeLeft%60}s </div>;
+  return <div className="font-medium text-[20px] text-green-500 flex items-center"> <IoIosAlarm size={20} className="mr-1"/> {Math.floor(timeLeft/60)} min {timeLeft%60}s </div>;
 };
 
 export default QuizTimer
