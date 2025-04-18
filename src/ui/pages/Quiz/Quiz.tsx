@@ -15,10 +15,10 @@ const esubs = [
   "emathematics"
 ];
 const csubs = [
-  "Integrated Science",
-  "Core Mathematics",
-  "English",
-  "Social Studies",
+  "integrated Science",
+  "core Mathematics",
+  "english",
+  "social Studies",
 ];
 
 const Quiz = () => {
@@ -35,7 +35,7 @@ const Quiz = () => {
           {esubs.map((sub, index) => (
             <Card className="p-2" key={index}>
               <CardHeader className="p-0 font-medium">
-                <CardTitle>{sub}</CardTitle>
+                <CardTitle className="capitalize">{sub}</CardTitle>
                 <CardDescription>
                   A test based on A+ past questions
                 </CardDescription>
@@ -53,7 +53,7 @@ const Quiz = () => {
           {csubs.map((sub, index) => (
             <Card className="p-2" key={index}>
               <CardHeader className="p-0 font-medium">
-                <CardTitle>{sub}</CardTitle>
+                <CardTitle className="capitalize">{sub}</CardTitle>
                 <CardDescription>
                   A test based on A+ past questions
                 </CardDescription>

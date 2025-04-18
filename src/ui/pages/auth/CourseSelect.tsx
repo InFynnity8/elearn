@@ -11,7 +11,7 @@ import {
 
 import { cn } from "../../../lib/utils";
 import { Button } from "../../../components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "../../../components/ui/card";
 import { ReactState } from "../../state/store.ts";
 

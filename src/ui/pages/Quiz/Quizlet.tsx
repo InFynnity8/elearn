@@ -908,6 +908,621 @@ const emathematics = [
   },
 ];
 
+const english = [
+  {
+    questionText: "Choose the correct word to complete the sentence: She is very good _____ mathematics.",
+    answerOptions: [
+      { answerText: "at", isCorrect: true },
+      { answerText: "in", isCorrect: false },
+      { answerText: "on", isCorrect: false },
+      { answerText: "with", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "at",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Identify the part of speech of the underlined word: She **quickly** ran to the market.",
+    answerOptions: [
+      { answerText: "Adverb", isCorrect: true },
+      { answerText: "Verb", isCorrect: false },
+      { answerText: "Adjective", isCorrect: false },
+      { answerText: "Noun", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Adverb",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Choose the sentence with correct punctuation.",
+    answerOptions: [
+      { answerText: "When she arrived, he was already gone.", isCorrect: true },
+      { answerText: "When she arrived he was already gone.", isCorrect: false },
+      { answerText: "When, she arrived he was already gone.", isCorrect: false },
+      { answerText: "When she arrived he, was already gone.", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "When she arrived, he was already gone.",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Choose the correct expression: He has lived here _____ five years.",
+    answerOptions: [
+      { answerText: "for", isCorrect: true },
+      { answerText: "since", isCorrect: false },
+      { answerText: "from", isCorrect: false },
+      { answerText: "during", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "for",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which of the following is a synonym of 'benevolent'?",
+    answerOptions: [
+      { answerText: "Kind", isCorrect: true },
+      { answerText: "Cruel", isCorrect: false },
+      { answerText: "Jealous", isCorrect: false },
+      { answerText: "Angry", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Kind",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Identify the tense in the sentence: 'She had eaten before I arrived.'",
+    answerOptions: [
+      { answerText: "Past perfect", isCorrect: true },
+      { answerText: "Simple past", isCorrect: false },
+      { answerText: "Present perfect", isCorrect: false },
+      { answerText: "Future perfect", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Past perfect",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Choose the correct indirect speech: He said, 'I am tired.'",
+    answerOptions: [
+      { answerText: "He said that he was tired.", isCorrect: true },
+      { answerText: "He said that he is tired.", isCorrect: false },
+      { answerText: "He said that I was tired.", isCorrect: false },
+      { answerText: "He said I am tired.", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "He said that he was tired.",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Choose the correct option to complete the sentence: Neither the teacher nor the students _____ absent.",
+    answerOptions: [
+      { answerText: "are", isCorrect: false },
+      { answerText: "were", isCorrect: false },
+      { answerText: "is", isCorrect: true },
+      { answerText: "have been", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "is",
+    answerIndex: 2,
+  },
+  {
+    questionText: "Choose the correct antonym for 'expand'.",
+    answerOptions: [
+      { answerText: "Contract", isCorrect: true },
+      { answerText: "Grow", isCorrect: false },
+      { answerText: "Enlarge", isCorrect: false },
+      { answerText: "Multiply", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Contract",
+    answerIndex: 0,
+  },
+  {
+    questionText: "What figure of speech is used in this sentence: 'The wind whispered through the trees'?",
+    answerOptions: [
+      { answerText: "Personification", isCorrect: true },
+      { answerText: "Metaphor", isCorrect: false },
+      { answerText: "Simile", isCorrect: false },
+      { answerText: "Hyperbole", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Personification",
+    answerIndex: 0,
+  },
+];
+
+const interscience = [
+  {
+    questionText: "What is the main function of the mitochondria in a cell?",
+    answerOptions: [
+      { answerText: "Energy production", isCorrect: true },
+      { answerText: "Protein synthesis", isCorrect: false },
+      { answerText: "Photosynthesis", isCorrect: false },
+      { answerText: "Cell division", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Energy production",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which of these is NOT a method of heat transfer?",
+    answerOptions: [
+      { answerText: "Compression", isCorrect: true },
+      { answerText: "Conduction", isCorrect: false },
+      { answerText: "Convection", isCorrect: false },
+      { answerText: "Radiation", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Compression",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which gas is given off during photosynthesis?",
+    answerOptions: [
+      { answerText: "Oxygen", isCorrect: true },
+      { answerText: "Carbon dioxide", isCorrect: false },
+      { answerText: "Nitrogen", isCorrect: false },
+      { answerText: "Hydrogen", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Oxygen",
+    answerIndex: 0,
+  },
+  {
+    questionText: "The boiling point of water at sea level is?",
+    answerOptions: [
+      { answerText: "100°C", isCorrect: true },
+      { answerText: "212°C", isCorrect: false },
+      { answerText: "90°C", isCorrect: false },
+      { answerText: "0°C", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "100°C",
+    answerIndex: 0,
+  },
+  {
+    questionText: "What is the correct order of the planets from the sun?",
+    answerOptions: [
+      { answerText: "Mercury, Venus, Earth, Mars", isCorrect: true },
+      { answerText: "Venus, Mercury, Earth, Mars", isCorrect: false },
+      { answerText: "Earth, Mars, Mercury, Venus", isCorrect: false },
+      { answerText: "Mars, Earth, Venus, Mercury", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Mercury, Venus, Earth, Mars",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which component of blood is responsible for clotting?",
+    answerOptions: [
+      { answerText: "Platelets", isCorrect: true },
+      { answerText: "Red blood cells", isCorrect: false },
+      { answerText: "White blood cells", isCorrect: false },
+      { answerText: "Plasma", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Platelets",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which of the following is a chemical change?",
+    answerOptions: [
+      { answerText: "Burning of paper", isCorrect: true },
+      { answerText: "Melting of ice", isCorrect: false },
+      { answerText: "Boiling of water", isCorrect: false },
+      { answerText: "Breaking of glass", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Burning of paper",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which organ removes urea from the blood?",
+    answerOptions: [
+      { answerText: "Kidney", isCorrect: true },
+      { answerText: "Liver", isCorrect: false },
+      { answerText: "Heart", isCorrect: false },
+      { answerText: "Lungs", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Kidney",
+    answerIndex: 0,
+  },
+  {
+    questionText: "What type of circuit has only one path for current to flow?",
+    answerOptions: [
+      { answerText: "Series circuit", isCorrect: true },
+      { answerText: "Parallel circuit", isCorrect: false },
+      { answerText: "Open circuit", isCorrect: false },
+      { answerText: "Closed circuit", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Series circuit",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which part of the plant is responsible for photosynthesis?",
+    answerOptions: [
+      { answerText: "Leaf", isCorrect: true },
+      { answerText: "Root", isCorrect: false },
+      { answerText: "Stem", isCorrect: false },
+      { answerText: "Flower", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Leaf",
+    answerIndex: 0,
+  },
+];
+
+const socialstudies = [
+  {
+    questionText: "Which of the following is a core value of democracy?",
+    answerOptions: [
+      { answerText: "Respect for human rights", isCorrect: true },
+      { answerText: "Military rule", isCorrect: false },
+      { answerText: "Dictatorship", isCorrect: false },
+      { answerText: "Censorship", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Respect for human rights",
+    answerIndex: 0,
+  },
+  {
+    questionText: "The extended family system is common in which type of society?",
+    answerOptions: [
+      { answerText: "Traditional society", isCorrect: true },
+      { answerText: "Industrial society", isCorrect: false },
+      { answerText: "Digital society", isCorrect: false },
+      { answerText: "Modern society", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Traditional society",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which of the following is a cause of rural-urban migration?",
+    answerOptions: [
+      { answerText: "Search for jobs", isCorrect: true },
+      { answerText: "Poor roads in cities", isCorrect: false },
+      { answerText: "Low cost of living in villages", isCorrect: false },
+      { answerText: "Noise pollution", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Search for jobs",
+    answerIndex: 0,
+  },
+  {
+    questionText: "What is the main aim of the United Nations?",
+    answerOptions: [
+      { answerText: "Promote world peace", isCorrect: true },
+      { answerText: "Spread capitalism", isCorrect: false },
+      { answerText: "Support one nation only", isCorrect: false },
+      { answerText: "Colonize poor countries", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Promote world peace",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Civic responsibility of a citizen includes:",
+    answerOptions: [
+      { answerText: "Voting during elections", isCorrect: true },
+      { answerText: "Evading taxes", isCorrect: false },
+      { answerText: "Destroying public property", isCorrect: false },
+      { answerText: "Avoiding national service", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Voting during elections",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which of the following is an agent of socialization?",
+    answerOptions: [
+      { answerText: "Family", isCorrect: true },
+      { answerText: "Bank", isCorrect: false },
+      { answerText: "Court", isCorrect: false },
+      { answerText: "Market", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Family",
+    answerIndex: 0,
+  },
+  {
+    questionText: "The main function of the judiciary is to:",
+    answerOptions: [
+      { answerText: "Interpret laws", isCorrect: true },
+      { answerText: "Make laws", isCorrect: false },
+      { answerText: "Enforce laws", isCorrect: false },
+      { answerText: "Break laws", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Interpret laws",
+    answerIndex: 0,
+  },
+  {
+    questionText: "What is population density?",
+    answerOptions: [
+      { answerText: "Number of people per unit area", isCorrect: true },
+      { answerText: "Number of cities in a country", isCorrect: false },
+      { answerText: "Birth rate in a year", isCorrect: false },
+      { answerText: "Death rate in a year", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Number of people per unit area",
+    answerIndex: 0,
+  },
+  {
+    questionText: "The term 'culture' refers to:",
+    answerOptions: [
+      { answerText: "The way of life of a people", isCorrect: true },
+      { answerText: "The food eaten in cities", isCorrect: false },
+      { answerText: "Modern fashion styles", isCorrect: false },
+      { answerText: "Type of economy", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "The way of life of a people",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Which of the following promotes national unity?",
+    answerOptions: [
+      { answerText: "Respect for other ethnic groups", isCorrect: true },
+      { answerText: "Discrimination", isCorrect: false },
+      { answerText: "Religious intolerance", isCorrect: false },
+      { answerText: "Tribalism", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "Respect for other ethnic groups",
+    answerIndex: 0,
+  },
+];
+
+const coremathematics = [
+  {
+    questionText: "Solve for x: 3x - 7 = 2x + 5",
+    answerOptions: [
+      { answerText: "x = 12", isCorrect: true },
+      { answerText: "x = -12", isCorrect: false },
+      { answerText: "x = 2", isCorrect: false },
+      { answerText: "x = -2", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "x = 12",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Evaluate: 2(3² + 4) - 5",
+    answerOptions: [
+      { answerText: "17", isCorrect: false },
+      { answerText: "13", isCorrect: false },
+      { answerText: "19", isCorrect: true },
+      { answerText: "23", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "19",
+    answerIndex: 2,
+  },
+  {
+    questionText: "Factorize: x² - 9x + 20",
+    answerOptions: [
+      { answerText: "(x - 4)(x - 5)", isCorrect: true },
+      { answerText: "(x - 2)(x - 10)", isCorrect: false },
+      { answerText: "(x + 4)(x + 5)", isCorrect: false },
+      { answerText: "(x - 1)(x - 20)", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "(x - 4)(x - 5)",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Simplify: (2x/3) ÷ (4x/9)",
+    answerOptions: [
+      { answerText: "3/2", isCorrect: true },
+      { answerText: "2/3", isCorrect: false },
+      { answerText: "3x/2x", isCorrect: false },
+      { answerText: "6x", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "3/2",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Find the median of: 3, 7, 9, 11, 15",
+    answerOptions: [
+      { answerText: "9", isCorrect: true },
+      { answerText: "11", isCorrect: false },
+      { answerText: "7", isCorrect: false },
+      { answerText: "15", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "9",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Find the mode of the following scores: 5, 8, 8, 6, 7, 8, 5",
+    answerOptions: [
+      { answerText: "8", isCorrect: true },
+      { answerText: "5", isCorrect: false },
+      { answerText: "6", isCorrect: false },
+      { answerText: "7", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "8",
+    answerIndex: 0,
+  },
+  {
+    questionText: "If tanθ = 3/4, what is sinθ in a right-angled triangle?",
+    answerOptions: [
+      { answerText: "3/5", isCorrect: true },
+      { answerText: "4/5", isCorrect: false },
+      { answerText: "5/3", isCorrect: false },
+      { answerText: "3/4", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "3/5",
+    answerIndex: 0,
+  },
+  {
+    questionText: "What is the gradient of the line joining the points (1, 2) and (4, 8)?",
+    answerOptions: [
+      { answerText: "2", isCorrect: true },
+      { answerText: "3", isCorrect: false },
+      { answerText: "1", isCorrect: false },
+      { answerText: "6", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "2",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Solve the inequality: 2x - 3 > 5",
+    answerOptions: [
+      { answerText: "x > 4", isCorrect: true },
+      { answerText: "x < 4", isCorrect: false },
+      { answerText: "x > 2", isCorrect: false },
+      { answerText: "x < 2", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "x > 4",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Find the simple interest on GHC 800 at 5% per annum for 3 years.",
+    answerOptions: [
+      { answerText: "GHC 120", isCorrect: true },
+      { answerText: "GHC 100", isCorrect: false },
+      { answerText: "GHC 130", isCorrect: false },
+      { answerText: "GHC 80", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "GHC 120",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Evaluate: (2/5) ÷ (4/7)",
+    answerOptions: [
+      { answerText: "7/10", isCorrect: true },
+      { answerText: "8/20", isCorrect: false },
+      { answerText: "2/20", isCorrect: false },
+      { answerText: "10/7", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "7/10",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Simplify: √(49/16)",
+    answerOptions: [
+      { answerText: "7/4", isCorrect: true },
+      { answerText: "4/7", isCorrect: false },
+      { answerText: "14", isCorrect: false },
+      { answerText: "3.5", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "7/4",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Solve for x: 3(x - 2) = 2x + 4",
+    answerOptions: [
+      { answerText: "x = 10", isCorrect: true },
+      { answerText: "x = -10", isCorrect: false },
+      { answerText: "x = 4", isCorrect: false },
+      { answerText: "x = -4", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "x = 10",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Convert 45° to radians.",
+    answerOptions: [
+      { answerText: "π/4", isCorrect: true },
+      { answerText: "π/3", isCorrect: false },
+      { answerText: "π/6", isCorrect: false },
+      { answerText: "2π/3", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "π/4",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Find the gradient of the line joining (2, 3) and (6, 11).",
+    answerOptions: [
+      { answerText: "2", isCorrect: true },
+      { answerText: "3", isCorrect: false },
+      { answerText: "4", isCorrect: false },
+      { answerText: "1", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "2",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Factor completely: x² - 9",
+    answerOptions: [
+      { answerText: "(x - 3)(x + 3)", isCorrect: true },
+      { answerText: "(x - 9)(x + 1)", isCorrect: false },
+      { answerText: "(x - 1)(x + 9)", isCorrect: false },
+      { answerText: "(x + 3)²", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "(x - 3)(x + 3)",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Solve the inequality: 2x - 3 < 5",
+    answerOptions: [
+      { answerText: "x < 4", isCorrect: true },
+      { answerText: "x > 4", isCorrect: false },
+      { answerText: "x < 1", isCorrect: false },
+      { answerText: "x > 1", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "x < 4",
+    answerIndex: 0,
+  },
+  {
+    questionText: "Find the value of x in the triangle if sin(x) = 0.5 and 0° < x < 90°",
+    answerOptions: [
+      { answerText: "30°", isCorrect: true },
+      { answerText: "45°", isCorrect: false },
+      { answerText: "60°", isCorrect: false },
+      { answerText: "90°", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "30°",
+    answerIndex: 0,
+  },
+  {
+    questionText: "If the mean of 4 numbers is 8, what is their total?",
+    answerOptions: [
+      { answerText: "32", isCorrect: true },
+      { answerText: "12", isCorrect: false },
+      { answerText: "24", isCorrect: false },
+      { answerText: "16", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "32",
+    answerIndex: 0,
+  },
+  {
+    questionText: "A bag contains 3 red balls and 5 blue balls. What is the probability of picking a red ball?",
+    answerOptions: [
+      { answerText: "3/8", isCorrect: true },
+      { answerText: "5/8", isCorrect: false },
+      { answerText: "3/5", isCorrect: false },
+      { answerText: "2/5", isCorrect: false },
+    ],
+    isAnswered: false,
+    answer: "3/8",
+    answerIndex: 0,
+  },
+];
+
+
+
+
 const Quizlet = () => {
   const navigate = useNavigate();
   const { subject } = useParams();
@@ -923,6 +1538,14 @@ const Quizlet = () => {
       ? physics
       : subject === "chemistry"
       ? chemistry
+      : subject === "integrated Science"
+      ? interscience
+      : subject === "core Mathematics"
+      ? coremathematics
+      : subject === "english"
+      ? english
+      : subject === "social Studies"
+      ? socialstudies
       : emathematics
   );
   const [selectedAnswers, setSelectedAnswers] = useState<
@@ -1109,7 +1732,8 @@ const Quizlet = () => {
                   <AlertDialogHeader className="w-full flex justify-center items-center">
                     <AlertDialogTitle>Score</AlertDialogTitle>
                     <AlertDialogDescription className="w-full flex justify-center items-center">
-                      You can do better
+                      { score === quizQuestions.length ? "Excellent!": score > quizQuestions.length / 2
+                        ? "You did well!" : "Better luck next time!"}
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <p>
