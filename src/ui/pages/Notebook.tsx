@@ -1,4 +1,3 @@
-import React from 'react'
 import Doc from "../../components/doc"
 
 const Notebook = () => {

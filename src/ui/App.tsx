@@ -25,7 +25,7 @@ const year = time.getFullYear();
 const fulldate = Day + " "  + Month + ", "  + year.toString() 
 const data = {
   user: {
-    name: "Hello, Marvin",
+    name: "Hello",
     email: fulldate,
     avatar: "/avatars/shadcn.jpg",
   }, 

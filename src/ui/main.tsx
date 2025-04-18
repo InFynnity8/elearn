@@ -11,7 +11,7 @@ declare global {
   interface Window {
     electronAPI: {
       // Videos
-      getVideos: () => Promise<{ name: string; path: string }[]>;
+      getVideos: (lang: string) => Promise<{ name: string; path: string }[]>;
       openVideoFolder: () => Promise<void>;
 
       // PDFs
@@ -22,6 +22,7 @@ declare global {
       saveText: (data: { filename: string; text: string }) => Promise<string | null>;
       loadTextFiles: () => Promise<{ name: string; path: string }[]>;
       readTextFile: (filePath: string) => Promise<{ success: boolean; text?: string; error?: string }>;
+      deleteTextFile: (filePath: string) => Promise<{ success: boolean; text?: string; error?: string }>;
       openNotesFolder: () => Promise<void>;
 
       // Authentication

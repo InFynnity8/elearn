@@ -15,10 +15,10 @@ const esubs = [
   "emathematics"
 ];
 const csubs = [
-  "Integrated Science Quiz",
-  "Core Mathematics Quiz",
-  "English Quiz",
-  "Social Studies Quiz",
+  "Integrated Science",
+  "Core Mathematics",
+  "English",
+  "Social Studies",
 ];
 
 const Quiz = () => {

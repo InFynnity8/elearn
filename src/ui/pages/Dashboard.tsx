@@ -182,7 +182,7 @@ const Dashboard = () => {
                 </p>
               </CardDescription>
               <CardFooter className="m-0 p-0 flex justify-end">
-                <Link className="w-full" to="/player">
+                <Link className="w-full" to={`/player/${subject.name}`}>
                 <Button className="w-full">Start Course</Button>
                 </Link>
               </CardFooter>

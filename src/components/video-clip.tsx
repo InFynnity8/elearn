@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
-import { IoIosClose } from "react-icons/io";
+import { IoIosClose, IoIosOpen } from "react-icons/io";
 import { Input } from "./ui/input";
 import { MdOutlineLiveTv } from "react-icons/md";
 import NoteEditor from "./note-editor";
-
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { Button } from "./ui/button";
 
 type Video = {
   name: string;
@@ -18,19 +23,22 @@ type Video = {
 //   title: string;
 // };
 
-const VideoList = () => {
+const VideoList = ({sub}:{sub: string}) => {
   const [videos, setVideos] = useState<Video[]>([]);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [language, setLanguage] = useState("en");
+  const [sidebar, setSidebar] = useState(true)
   // const [metadata, setMetadata] = useState<VideoMetadata | null>(null);
 
   useEffect(() => {
-    window.electronAPI.getVideos().then((videoList: Video[]) => {
+    if (!language) return;
+    window.electronAPI.getVideos(language).then((videoList: Video[]) => {
       setVideos(videoList);
       if (videoList.length > 0) {
         setSelectedVideo(videoList[0].path); // Default to first video
       }
     });
-  }, []);
+  }, [language]);
 
   const selectVideo = async (videoPath: string) => {
     setSelectedVideo(videoPath);
@@ -41,15 +49,16 @@ const VideoList = () => {
   return (
     <div className="flex flex-col xl:flex-row">
       {/* Video Player */}
-      <div className="w-full xl:w-3/4 ">
+      <div className={`w-full ${sidebar ? "xl:w-[calc(100%-274px)]" : "xl:w-full"}`} >
         {selectedVideo && (
-          <div className="">
+          <div className=" border-[1px] border-gray-100">
             <Plyr
               source={{
                 type: "video",
                 sources: [{ src: selectedVideo, type: "video/mp4" }],
               }}
-            />
+            /> 
+
             {/* {metadata && (
               <div className="p-4">
                 <h2 className="text-xl font-bold ">Title: {metadata.title}</h2>
@@ -58,16 +67,36 @@ const VideoList = () => {
             )} */}
           </div>
         )}
+        <div className="p-2 w-full flex justify-end">
+
+        <DropdownMenu>
+          <DropdownMenuTrigger className="p-2 text-white bg-blue-400 rounded-md cursor-pointer">
+            {language}
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem onClick={() => setLanguage("en")}>
+              English
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setLanguage("twi")}>
+              Twi
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        </div>
         <div className=" w-full p-2">
           <NoteEditor />
         </div>
       </div>
 
       {/* Video List */}
-      <div className="w-full bg-background overflow-auto h-screen xl:fixed xl:right-0 xl:w-[270px]">
+      {!sidebar ? <Button onClick={() => setSidebar(true)} className="rounded-l-[50%]  z-50 fixed top-[100px] right-0 bg-blue-400 opacity-25 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+        <IoIosOpen size={20} className="text-white" />
+        </Button>
+      :
+      <div className="w-full bg-background overflow-auto h-screen xl:fixed xl:right-0 xl:w-[274px]">
         <div className=" flex items-center justify-between font-medium text-[17px] w-full px-5 py-2 border-b-[1px] border-t-[1px]">
-          <h1>Course content</h1>
-          <IoIosClose size={20} className="hover:cursor-pointer" />
+          <h1>{sub}</h1>
+          <IoIosClose size={20} className="hover:cursor-pointer" onClick={() => setSidebar(false)}/>
         </div>
         {videos.map((video) => (
           <div key={video.name}>
@@ -87,7 +116,9 @@ const VideoList = () => {
                   />
                 </div>
                 <div className="truncate h-5">
-                  <h1 className="leading-5 truncate">{video.name.slice(0, -4)}</h1>
+                  <h1 className="leading-5 truncate">
+                    {video.name.slice(0, -7)}
+                  </h1>
                 </div>
               </div>
               <div className="px-5 flex items-center">
@@ -97,7 +128,7 @@ const VideoList = () => {
             </button>
           </div>
         ))}
-      </div>
+      </div>}
     </div>
   );
 };

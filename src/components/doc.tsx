@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { BookOpen, Edit, Trash2, File } from "lucide-react";
+import { BookOpen, Trash2, File } from "lucide-react";
 import { Input } from "./ui/input";
 
 export default function SavedTexts() {
@@ -9,12 +9,19 @@ export default function SavedTexts() {
 
   useEffect(() => {
     window.electronAPI.loadTextFiles().then((files: any) => setFiles(files));
-  }, []);
+  }, [files]);
 
   const handleReadFile = async (filePath: string) => {
     const result = await window.electronAPI.readTextFile(filePath);
     if (result.success) setSelectedText(result.text);
     else alert(`Error: ${result.error}`);
+  };
+
+  const handleDeleteFile = async (filePath: string) => {
+    const result = await window.electronAPI.deleteTextFile(filePath);
+    if (result.success) alert(`${result.success}`);
+    else alert(`Error: ${result.error}`);
+    setSelectedText("")
   };
 
   return (
@@ -48,10 +55,7 @@ export default function SavedTexts() {
               <Button onClick={() => handleReadFile(file.path)} variant="ghost">
                 <BookOpen />
               </Button>
-              <Button variant="ghost">
-                <Edit />
-              </Button>
-              <Button variant="destructive">
+              <Button variant="destructive" onClick={() => handleDeleteFile(file.path)}>
                 <Trash2 />
               </Button>
             </div>

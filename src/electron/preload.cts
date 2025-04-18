@@ -2,7 +2,7 @@ const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
   // Videos
-  getVideos: () => ipcRenderer.invoke("get-videos"),
+  getVideos: (lang: string) => ipcRenderer.invoke("get-videos", lang),
   openVideoFolder: () => ipcRenderer.invoke("open-video-folder"),
 
   // PDFs
@@ -13,6 +13,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
   saveText: (data: { filename: string; text: string }) => ipcRenderer.invoke("save-text", data),
   loadTextFiles: () => ipcRenderer.invoke("load-text-files"),
   readTextFile: (filePath: string) => ipcRenderer.invoke("read-text-file", filePath),
+  deleteTextFile: (filePath: string) => ipcRenderer.invoke("delete-text-file", filePath),
   openNotesFolder: () => ipcRenderer.invoke("open-notes-folder"),
 
   // Authentication

@@ -19,7 +19,7 @@ import { authenticateUser } from "./auth.js";
 
 // Get the user's documents folder
 function getUserDataPath(subFolder: string) {
-  return path.join(app.getPath("documents"), "eLearn", subFolder);
+  return path.join(app.getPath("documents"), "eClassroom", subFolder);
 }
 
 // Get paths for different directories
@@ -67,10 +67,10 @@ app.on("ready", () => {
 });
 
 // Fetch videos
-ipcMain.handle("get-videos", async () => {
+ipcMain.handle("get-videos", async (_, lang) => {
   const videoFolder = getVideoPath();
   try {
-    const files = fs.readdirSync(videoFolder).filter((file) => file.endsWith(".mp4"));
+    const files = fs.readdirSync(videoFolder).filter((file) => file.endsWith(`${lang}.mp4`));
     return files.map((file) => ({
       name: file,
       path: `file://${path.join(videoFolder, file)}`,
@@ -139,6 +139,16 @@ ipcMain.handle("read-text-file", async (_, filePath) => {
     return { success: true, text };
   } catch (error) {
     return { success: false, error: (error as Error).message };
+  }
+});
+
+// delete a text file
+ipcMain.handle("delete-text-file", async (_, filePath) => {
+  try {
+    await fs.promises.rm(filePath, { force: true }); // wait for deletion
+    return { success: "Successfully deleted" }; // ✅ return plain object only
+  } catch (error) {
+    return { success: "Can't delete this file", error: (error as Error).message };
   }
 });
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IoIosClose } from "react-icons/io";
+import { IoIosClose, IoIosOpen } from "react-icons/io";
 // import { useParams } from "react-router-dom";
 import { Document, Page, pdfjs } from "react-pdf";
 
@@ -47,6 +47,8 @@ const PdfList = () => {
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [isScrollable, setIsScrollable] = useState(false)
+  const [sidebar, setSidebar] = useState(true)
+
   // const {subject} = useParams();
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const PdfList = () => {
   return (
     <div className="flex flex-col xl:flex-row xl:items-start items-center">
       {/* PDF Reader */}
-      <div className="w-full xl:w-3/4">
+      <div className={`w-full ${sidebar ? "xl:w-[calc(100%-274px)]" : "xl:w-full"}`}>
         {selectedPdf && (
           <div className="flex flex-col items-center p-4">
             {/* Pagination Controls */}
@@ -118,10 +120,14 @@ const PdfList = () => {
       </div>
 
       {/* PDF List */}
+      {!sidebar ? <Button onClick={() => setSidebar(true)} className="rounded-l-[50%]  z-50 fixed top-[100px] right-0 bg-blue-400 opacity-25 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+              <IoIosOpen size={20} className="text-white" />
+              </Button>
+            :
       <div className="w-full bg-background overflow-auto h-screen xl:fixed xl:right-0 xl:w-[270px]">
         <div className="h-17 flex items-center justify-between font-medium text-[17px] w-full px-5 border-b-[1px] border-t-[1px]">
           <h1>Books</h1>
-          <IoIosClose size={20} className="hover:cursor-pointer" />
+          <IoIosClose size={20} className="hover:cursor-pointer" onClick={() => setSidebar(false)}/>
         </div>
         {pdfs.map((pdf, index) => (
           <div key={pdf.name}>
@@ -147,7 +153,7 @@ const PdfList = () => {
             </button>
           </div>
         ))}
-      </div>
+      </div>}
     </div>
   );
 };
